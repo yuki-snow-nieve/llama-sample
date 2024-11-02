@@ -1,0 +1,56 @@
+@use "./settings.scss";
+
+.section-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: settings.$theme-main-background;
+  background: linear-gradient(180deg, rgba(settings.$theme-main-background, 0) 0%, rgba(settings.$theme-main-background, 1) 40%); 
+}
+
+.details-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.details-header {
+  padding: 0 16px;
+}
+
+.details-body {
+  flex: 1;
+  padding: 0 24px 16px;
+  background: rgba(settings.$theme-main-background, 0.2);
+  overflow: scroll;
+}
+.details-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.button-search {
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  height: 42px;
+  border-radius: 6px;
+  background-color: rgba(settings.$theme-main-text, 0.2);
+  line-height: 1;
+}
+
+.buttons-reaction {
+  display: flex;
+  gap: 16px;
+  button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid settings.$theme-main-text;
+    border-radius: 50%;
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+}

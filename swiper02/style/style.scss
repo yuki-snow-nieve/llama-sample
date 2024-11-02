@@ -1,0 +1,36 @@
+@use "./sass/settings.scss";
+@use "./sass/global.scss";
+@use "./sass/reset.scss";
+@use "./sass/movieDetails.scss";
+
+.section-movies {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.section-details {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  height: 40vh;
+  z-index: settings.$layer-detail;
+}
+
+
+.swiper-wrapper {
+  margin-top: -25vh;
+}
+
+.movie-item {
+  height: fit-content;
+  // transition: all 300ms ease;
+
+  &:not(.swiper-slide-active) {
+    background-color: settings.$theme-main-background;
+    img {
+      opacity: 0.3;
+    }
+    // transform: translateX(16px);
+    // transition: all 300ms ease;
+  }
+}
+

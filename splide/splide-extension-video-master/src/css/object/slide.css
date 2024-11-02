@@ -1,0 +1,13 @@
+.splide__slide--has-video {
+  cursor: pointer;
+}
+.splide__slide--has-video:hover .splide__video__play {
+  opacity: 1;
+}
+.splide__slide__container--has-video {
+  cursor: pointer;
+  position: relative;
+}
+.splide__slide__container--has-video:hover .splide__video__play {
+  opacity: 1;
+}/*# sourceMappingURL=slide.css.map */

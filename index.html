@@ -1,0 +1,118 @@
+<html lang="ja">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      background-color: rgb(241, 239, 233);
+      color: rgb(50, 50, 66);
+    }
+
+    ul, ol, li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border:none;
+    }
+
+    p {
+      margin: 0;
+      margin-bottom: .66em;
+      text-align: justify;
+      text-justify: inter-ideograph;
+    }
+
+
+    a {
+      display: block;
+      color: rgb(54, 141, 134);
+      text-decoration: none;
+    }
+
+    .global-header {
+      padding: 16px;
+      font-size: 3.6rem;
+      font-weight: bold;
+      opacity: 0.5;
+    }
+
+    .list-samples {
+      padding: 16px;
+
+      .list-item {
+        margin-bottom: 16px;
+        a {
+          position: relative;
+          padding: 0 8px;
+          border-left: 6px solid rgb(54, 141, 134);
+          &:before, &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            color: currentColor;
+            opacity: 0.3;
+          }
+          &::before {
+            top: 50%;
+            right: 0.66em;
+            width: 3em;
+            height: 0;
+            border: 1px dashed currentColor;
+          }
+          &:after {
+            top: calc(50% - 0.64em);
+            right: 0;
+            width: 2rem;
+            height: 2rem;
+            border-style: solid;
+            border-color: currentColor;
+            border-width: 3px 3px 0 0;
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      .style {
+        font-weight: bold;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="global-header">samples</header>
+  <div class="main">
+    <ul class="list-samples">
+      <li class="list-item"><a href="./swiper01/index.html">
+        <div class="style">Sample 1</div>
+        <p class="description">シンプル縦スクロール</p>
+      </a></li>
+      <li class="list-item"><a href="./swiper01-1/index.html">
+        <div class="style">Sample 1</div>
+        <p class="description">シンプル縦スクロール 背景サムネイル付き</p>
+      </a></li>
+      <li class="list-item"><a href="./swiper02/index.html">
+        <div class="style">Sample 2</div>
+        <p class="description">coverflowエフェクト付き縦スクロール</p>
+      </a></li>
+      <li class="list-item"><a href="./swiper03/index.html">
+        <div class="style">Sample 3</div>
+        <p class="description">起動円エフェクト付き縦スクロール</p>
+      </a></li>
+      <li class="list-item"><a href="./swiper04/index.html">
+        <div class="style">Sample 4</div>
+        <p class="description">横スクロール</p>
+      </a></li>
+    </ul>
+  </div>
+</body>
+</html>

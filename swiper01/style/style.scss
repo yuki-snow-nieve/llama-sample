@@ -1,0 +1,41 @@
+@use "./sass/settings.scss";
+@use "./sass/global.scss";
+@use "./sass/reset.scss";
+@use "./sass/movieDetails.scss";
+
+.section-movies {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.section-details {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  height: 60vh;
+  z-index: settings.$layer-detail;
+}
+
+
+.swiper-wrapper {
+  margin-top: 10vh;
+}
+
+.movie-item {
+  height: fit-content;
+}
+
+.swiper-slide {
+  // transition: all 300ms ease;
+  width: 40%;
+
+  &.swiper-slide-active {
+    width: 100%;
+  }
+
+  &:not(.swiper-slide-active) {
+    margin-left: 16px;
+    // transform: translateX(16px);
+    // transition: all 300ms ease;
+  }
+}
+

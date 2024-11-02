@@ -1,0 +1,54 @@
+@use "./sass/settings.scss";
+@use "./sass/global.scss";
+@use "./sass/reset.scss";
+@use "./sass/movieDetails.scss";
+
+.main {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 100%;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.section-movies {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-details {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  height: 40vh;
+  z-index: settings.$layer-detail;
+}
+
+.movie-player {
+  width: 100%;
+  aspect-ratio: 16/9;
+  margin-bottom: 24px;
+}
+
+.swiper-wrapper {
+  height: fit-content;
+}
+
+.swiper-slide{
+  width: 100px;
+
+  &.swiper-slide-active {
+    zoom: 1.6;
+  }
+
+  &:not(.swiper-slide-active) {
+    background-color: settings.$theme-main-background;
+    img {
+      opacity: 0.3;
+    }
+  }
+}

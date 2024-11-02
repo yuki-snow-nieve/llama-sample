@@ -1,0 +1,152 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.global-header {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  top: 0;
+  height: 42px;
+  margin-bottom: 24px;
+  background-color: rgba(0, 0, 0, 0.66);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 80%, rgba(0, 0, 0, 0) 100%);
+  font-weight: bold;
+  color: #999999;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+ul, ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 0.66em;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+button {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+}
+
+.details-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.details-header {
+  padding: 0 16px;
+}
+
+.details-body {
+  flex: 1;
+  padding: 0 24px 16px;
+  background: rgba(0, 0, 0, 0.2);
+  overflow: scroll;
+}
+
+.details-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.button-search {
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  height: 42px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  line-height: 1;
+}
+
+.buttons-reaction {
+  display: flex;
+  gap: 16px;
+}
+.buttons-reaction button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 100%;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.section-movies {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-details {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  height: 40vh;
+  z-index: 10;
+}
+
+.movie-player {
+  width: 100%;
+  aspect-ratio: 16/9;
+  margin-bottom: 24px;
+}
+
+.swiper-wrapper {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.swiper-slide {
+  width: 100px;
+}
+.swiper-slide.swiper-slide-active {
+  zoom: 1.6;
+}
+.swiper-slide:not(.swiper-slide-active) {
+  background-color: #000000;
+}
+.swiper-slide:not(.swiper-slide-active) img {
+  opacity: 0.3;
+}/*# sourceMappingURL=style.css.map */

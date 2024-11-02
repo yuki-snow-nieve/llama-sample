@@ -1,0 +1,42 @@
+@use "./settings.scss";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  background-color: settings.$theme-main-background;
+  color: settings.$theme-main-text;
+}
+
+
+.global-header {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: settings.$layer-globalHeader;
+  height: 42px;
+  background-color: rgba(settings.$theme-main-background, 0.66);
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(settings.$theme-main-background, 0.8) 0%, rgba(settings.$theme-main-background, 0.8) 80%, rgba(settings.$theme-main-background, 0) 100%);
+  font-weight: bold;
+  color: #999999;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 100%;
+  width: 100vw;
+  height: 100vh;
+}
