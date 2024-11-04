@@ -16,7 +16,6 @@ body {
   color: settings.$theme-main-text;
 }
 
-
 .global-header {
   position: absolute;
   display: flex;
@@ -34,9 +33,32 @@ body {
 }
 
 .main {
-  display: grid;
-  grid-template-rows: 100%;
-  grid-template-columns: 100%;
   width: 100vw;
+  width: 100dvw;
   height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
 }
+
+
+.button_solid {
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  height: 42px;
+  border-radius: 6px;
+  background-color: rgba(settings.$theme-main-text, 0.2);
+  line-height: 1;
+}
+
+.button_border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 1em;
+  border: 2px solid currentColor;
+  text-decoration: none;
+  color: inherit;
+}
+
