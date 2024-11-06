@@ -31,11 +31,32 @@ body {
 }
 
 .main {
-  display: grid;
-  grid-template-rows: 100%;
-  grid-template-columns: 100%;
   width: 100vw;
+  width: 100dvw;
   height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.button_solid {
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  height: 42px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  line-height: 1;
+}
+
+.button_border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 1em;
+  border: 2px solid currentColor;
+  text-decoration: none;
+  color: inherit;
 }
 
 img {
@@ -65,15 +86,6 @@ button {
   font-size: inherit;
 }
 
-.section-details {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #000000;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, black 40%);
-}
-
 .details-box {
   display: flex;
   flex-direction: column;
@@ -81,7 +93,14 @@ button {
 }
 
 .details-header {
+  position: relative;
   padding: 0 16px;
+}
+.details-header .button_hideDetail {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .details-body {
@@ -90,22 +109,16 @@ button {
   background: rgba(0, 0, 0, 0.2);
   overflow: scroll;
 }
+.details-body .button {
+  display: flex;
+  margin-bottom: 24px;
+}
 
 .details-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-}
-
-.button-search {
-  display: flex;
-  align-items: center;
-  padding: 0 1em;
-  height: 42px;
-  border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.2);
-  line-height: 1;
 }
 
 .buttons-reaction {
@@ -119,6 +132,47 @@ button {
   border-radius: 50%;
   font-size: 2.4rem;
   font-weight: bold;
+}
+
+.section-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 30vh;
+  background: #000000;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, black 40%);
+  transition: height 200ms ease;
+}
+.section-details.is_showmore {
+  height: 60vh;
+}
+
+.section-movies {
+  container-type: inline-size;
+  width: 100%;
+}
+
+.swiper-wrapper {
+  margin-top: 10vh;
+}
+
+.movie-item {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.movie-item img {
+  position: relative;
+  z-index: 1;
+}
+.movie-item iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 
 .section-movies {

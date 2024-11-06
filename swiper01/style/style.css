@@ -187,4 +187,5 @@ body {
 }
 .swiper-slide:not(.swiper-slide-active) {
   margin-left: 16px;
+  opacity: 0.5;
 }/*# sourceMappingURL=style.css.map */

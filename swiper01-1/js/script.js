@@ -1,6 +1,10 @@
 document.addEventListener( 'DOMContentLoaded', () => {
-  const movieDetailBox = document.getElementById('box-detail')
+  const movieDetailBox = document.getElementById('box-detail');
+  const toggleButton_showDetail = document.getElementById('button-showDetail_toggle');
+  const button_hideDetail = document.getElementById('button-hideDetail');
+  const areaDetail = document.getElementById('area_detail');
   const backThumbArea = document.getElementById('playerbackground');
+  let flg_showDetail = 0;
 
   const swiper = new Swiper('.swiper', {
     direction: 'vertical',
@@ -8,6 +12,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
     initialSlide: 1,
     slidesPerView: 'auto',
     effect: 'slide',
+    speed: 400,
     // history: {
     //   replaceState: true,
     //   key: ''
@@ -17,18 +22,18 @@ document.addEventListener( 'DOMContentLoaded', () => {
     centeredSlidesBounds: true,
     lazyPreloadPrevNext: 2,
     on: {
-      slideChangeTransitionStart: () => {
-        movieDetailBox.style.opacity = 0;
-      },
       slideNextTransitionStart: (e) => {
         deletePlayerItem(e.slides[e.snapIndex - 1]);
       },
       slidePrevTransitionStart: (e) => {
         deletePlayerItem(e.slides[e.snapIndex + 1]);
       },
+      slideChangeTransitionStart: () => {
+        movieDetailBox.style.opacity = 0;
+      },
       slideChangeTransitionEnd: (e) => {
-        movieDetailBox.style.opacity = 1;
         startAutoPlay(e.slides[e.snapIndex]);
+        movieDetailBox.style.opacity = 1;
       }
     }
   });
@@ -54,8 +59,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
   };
 
   function deletePlayerItem(item) {
-    console.log(item.querySelector('iframe'))
-    console.log(backThumbArea)
     if (!item.querySelector('iframe')) {
       return;
     }
@@ -65,4 +68,32 @@ document.addEventListener( 'DOMContentLoaded', () => {
     item.querySelector('iframe').remove();
     backThumbArea.querySelector('img').remove();
   }
+
+
+  toggleButton_showDetail.addEventListener('click', () => {
+    if (flg_showDetail == 0) {
+      openDetail();
+    } else {
+      closeDetail();
+    }
+  });
+
+  button_hideDetail.addEventListener('click', () => {
+    closeDetail();
+  })
+
+  function openDetail() {
+    flg_showDetail = 1;
+    areaDetail.classList.add('is_showmore');
+    toggleButton_showDetail.textContent = '詳細を縮小する';
+    button_hideDetail.style.display = 'block';
+  }
+
+  function closeDetail() {
+    flg_showDetail = 0;
+    areaDetail.classList.remove('is_showmore');
+    toggleButton_showDetail.textContent = '詳細をもっと見る';
+    button_hideDetail.style.display = 'none';
+  }
+
 });

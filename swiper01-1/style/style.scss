@@ -3,25 +3,34 @@
 @use "./sass/reset.scss";
 @use "./sass/movieDetails.scss";
 
-.section-movies {
-  grid-column: 1/2;
-  grid-row: 1/2;
-}
-
 .section-details {
-  grid-column: 1/2;
-  grid-row: 1/2;
-  height: 40vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   z-index: settings.$layer-detail;
+  width: 100%;
+  height: 30vh;
+  background: settings.$theme-main-background;
+  background: linear-gradient(180deg, rgba(settings.$theme-main-background, 0) 0%, rgba(settings.$theme-main-background, 1) 40%);
+  transition: height 200ms ease;
+
+  &.is_showmore {
+    height: 60vh;
+  }
+  
 }
 
+.section-movies {
+  container-type: inline-size;
+  width: 100%;
+}
 
 .swiper-wrapper {
   margin-top: 10vh;
+  // transition-delay: 400ms !important;
 }
 
 .movie-item {
-  position: relative;
   height: fit-content;
 
   img {
@@ -36,21 +45,25 @@
     left: 0;
     right: 0;
     z-index: 2;
-    // width: 100%;
   }
-
 }
 
 .swiper-slide {
+  position: relative;
+  aspect-ratio: 16/9;
+  width: 40cqw;
+  transform-origin: 0 0;
 
   &.swiper-slide-active {
-
+    zoom: math.div(100, 40);
+    margin-bottom: math.div(24, math.div(100, 40)) !important;
   }
 
   &:not(.swiper-slide-active) {
-    width: 46%;
     margin-left: 16px;
-  }  
+    opacity: 0.5;
+  }
+
 }
 
 .section-movies-background {
