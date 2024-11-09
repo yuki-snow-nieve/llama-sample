@@ -1,0 +1,91 @@
+@use "sass:math";
+@use "sass:meta";
+@use "./sass/reset.scss";
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+$r: 200px;
+
+.circle {
+
+  width: $r * 2;
+  height: $r * 2;
+  border: 1px dotted rgb(122, 82, 174);
+  border-radius: 50%;
+  transform: translateX(-$r);
+
+  .circle-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 90px;
+    aspect-ratio: 1/1;
+    background-color: rgb(82, 174, 174);
+    color: white;
+    line-height: 1;
+  }
+}
+
+//円お試し
+.circle {
+  position: relative;
+
+  .circle-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    // @for $i from 0 through 5 {
+    //   &[data-index="#{$i}"] {
+    //     $angle: math.div(360deg, 6) * $i;
+    //     $x: math.cos($angle) * $r;
+    //     $y: math.sin($angle) * $r;
+    //     translate: calc($x - 50%) calc($y - 50%);
+    //   }
+    // }
+
+  }
+}
+
+//動きお試し
+.circle {
+
+  $item-count: 6;
+
+  .item {
+    &-prev {
+      background-color: rgb(247, 213, 167);
+      $angle: math.div(360deg, $item-count) * ($item-count - 1);
+      $x: math.cos($angle) * $r;
+      $y: math.sin($angle) * $r;
+      translate: calc($x - 50%) calc($y - 50%);
+      rotate: -1 * math.div(math.div(360deg, $item-count), 2);
+    }
+    &-active {
+      background-color: rgb(245, 162, 47);
+      $angle: math.div(360deg, $item-count) * 0;
+      $x: math.cos($angle) * $r;
+      $y: math.sin($angle) * $r;
+      translate: calc($x - 100%) calc($y - 50%);
+      zoom: 1.5;
+    }
+    &-next {
+      background-color: rgb(247, 213, 167);
+      $angle: math.div(360deg, $item-count) * 1;
+      $x: math.cos($angle) * $r;
+      $y: math.sin($angle) * $r;
+      translate: calc($x - 50%) calc($y - 50%);
+      rotate: math.div(math.div(360deg, $item-count), 2);
+    }
+  }
+}
+
+

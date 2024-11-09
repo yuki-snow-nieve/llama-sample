@@ -26,11 +26,11 @@ document.addEventListener( 'DOMContentLoaded', () => {
       slidePrevTransitionStart: (e) => {
       },
       slideChangeTransitionStart: (e) => {
-        deletePlayerItem(e.slides[e.snapIndex]);
+        deletePlayerItem(e.slides[e.activeIndex]);
         movieDetailBox.style.opacity = 0;
       },
       slideChangeTransitionEnd: (e) => {
-        startAutoPlay(e.slides[e.snapIndex]);
+        startAutoPlay(e.slides[e.activeIndex]);
         movieDetailBox.style.opacity = 1;
       }
     }
