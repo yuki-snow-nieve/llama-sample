@@ -19,11 +19,50 @@
       color: rgb(50, 50, 66);
     }
 
+    section {
+      margin-bottom: 32px;
+      padding-top: 24px;
+      &:before {
+        position: relative;
+        top: -24px;
+        left: 12.5%;
+        content: "";
+        display: inline-block;
+        width: 75%;
+        height: 1px;
+        background-color: rgb(54, 141, 134);
+        text-align: center;
+      }
+    }
+
+    h2 {
+      margin: 0;
+      padding: 0 0 0 8px;
+      color: rgb(54, 141, 134);
+      font-size: 18px;
+    }
+
     ul, ol, li {
       list-style: none;
       margin: 0;
       padding: 0;
       border:none;
+    }
+
+    ol{
+      counter-reset: listnum;
+      list-style: none;
+      li::before{
+        counter-increment: listnum;
+        content: counter(listnum);
+        color: rgb(54, 141, 134);
+        margin-right: 0.5em;
+      }
+    }
+
+    ul, ol {
+      padding: 16px;
+
     }
 
     p {
@@ -48,7 +87,6 @@
     }
 
     .list-samples {
-      padding: 16px;
 
       .list-item {
         margin-bottom: 16px;
@@ -87,33 +125,82 @@
         font-weight: bold;
       }
     }
+
+    .screensize {
+      display: flex;
+      margin-left: 18px;
+      align-items: center;
+      &:before {
+        content: "";
+        height: 1px;
+        width: 2em;
+        background-color: rgb(54, 141, 134);;
+      }
+      dt {
+      }
+      dd {
+        margin: 0;
+        flex: 1;
+        color: rgb(54, 141, 134);
+        font-weight: bold;
+      }
+    }
   </style>
+  <script src="./script.js"></script>
 </head>
 <body>
   <header class="global-header">samples</header>
   <div class="main">
-    <ul class="list-samples">
-      <li class="list-item"><a href="./swiper01/index.html">
-        <div class="style">Sample 1</div>
-        <p class="description">シンプル縦スクロール</p>
-      </a></li>
-      <li class="list-item"><a href="./swiper01-1/index.html">
-        <div class="style">Sample 1</div>
-        <p class="description">シンプル縦スクロール 背景サムネイル付き</p>
-      </a></li>
-      <li class="list-item"><a href="./swiper02/index.html">
-        <div class="style">Sample 2</div>
-        <p class="description">coverflowエフェクト付き縦スクロール</p>
-      </a></li>
-      <li class="list-item"><a href="./swiper03/index.html">
-        <div class="style">Sample 3</div>
-        <p class="description">起動円エフェクト付き縦スクロール</p>
-      </a></li>
-      <li class="list-item"><a href="./swiper04/index.html">
-        <div class="style">Sample 4</div>
-        <p class="description">横スクロール</p>
-      </a></li>
-    </ul>
+    <section>
+      <h2>ご利用の端末のスクリーンサイズ</h2>
+      <dl class="screensize">
+        <dt>幅：</dt><dd><span id="windowW"></span></dd>
+      </dl>
+      <dl class="screensize">
+        <dt>高：</dt><dd><span id="windowH"></span></dd>
+      </dl>
+    </section>
+    <section>
+      <h2>サンプルリスト</h2>
+      <ul class="list-samples">
+        <li class="list-item"><a href="./swiper01/index.html">
+          <div class="style">Sample 1</div>
+          <p class="description">シンプル縦スクロール</p>
+        </a></li>
+        <li class="list-item"><a href="./swiper01-1/index.html">
+          <div class="style">Sample 1</div>
+          <p class="description">シンプル縦スクロール 背景サムネイル付き</p>
+        </a></li>
+        <li class="list-item"><a href="./swiper02/index.html">
+          <div class="style">Sample 2</div>
+          <p class="description">coverflowエフェクト付き縦スクロール</p>
+        </a></li>
+        <li class="list-item"><a href="./swiper03/index.html">
+          <div class="style">Sample 3</div>
+          <p class="description">起動円エフェクト付き縦スクロール</p>
+        </a></li>
+        <li class="list-item"><a href="./swiper04/index.html">
+          <div class="style">Sample 4</div>
+          <p class="description">横スクロール</p>
+        </a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>サンプル中作品タイトル</h2>
+      <ol>
+        <li>JOKER - FOLIE A DEUX</li>
+        <li>THE 聖おにいさん ホーリーメン vs 悪魔軍団</li>
+        <li>ふしぎ駄菓子屋 銭天堂</li>
+        <li>愛を耕すひと</li>
+        <li>スオミの話をしよう</li>
+        <li>はたらく細胞</li>
+        <li>敵</li>
+        <li>ビーキーパー</li>
+        <li>六人の嘘つきな大学生</li>
+        <li>バンババンバンバンパイヤ</li>
+      </ol>
+    </section>
   </div>
 </body>
 </html>
