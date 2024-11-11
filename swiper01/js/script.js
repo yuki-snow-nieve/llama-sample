@@ -21,10 +21,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
     centeredSlidesBounds: true,
     lazyPreloadPrevNext: 2,
     on: {
-      slideNextTransitionStart: (e) => {
-      },
-      slidePrevTransitionStart: (e) => {
-      },
       slideChangeTransitionStart: (e) => {
         deletePlayerItem(e.slides[e.activeIndex]);
         movieDetailBox.style.opacity = 0;

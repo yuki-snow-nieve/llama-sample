@@ -55,8 +55,12 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
     const backThumb = document.createElement('img');
     backThumb.setAttribute('src', thumb.src);
-    backThumbArea.insertAdjacentElement('afterbegin', backThumb)
-  };
+    const backThumb2 = document.createElement('img');
+    backThumb2.setAttribute('src', thumb.src);
+
+    backThumbArea.insertAdjacentElement('beforeend', backThumb);
+    backThumbArea.insertAdjacentElement('beforeend', backThumb2);
+};
 
   function deletePlayerItem(item) {
     if (!item.querySelector('iframe')) {
@@ -66,7 +70,9 @@ document.addEventListener( 'DOMContentLoaded', () => {
     thumb.style.transition = 'opacity 1000ms ease-in-out';
     thumb.style.opacity = '1';
     item.querySelector('iframe').remove();
-    backThumbArea.querySelector('img').remove();
+    backThumbArea.querySelectorAll('img').forEach(imgelm => {
+      imgelm.remove();
+    });
   }
 
 

@@ -15,7 +15,7 @@ body {
 }
 
 .global-header {
-  position: absolute;
+  position: sticky;
   display: flex;
   align-items: center;
   top: 0;
@@ -121,6 +121,10 @@ button {
   font-weight: bold;
 }
 
+.main {
+  height: calc(100vdh - 42px);
+}
+
 .section-movies {
   grid-column: 1/2;
   grid-row: 1/2;
@@ -131,6 +135,15 @@ button {
   grid-row: 1/2;
   height: 40vh;
   z-index: 10;
+}
+
+.list-title {
+  position: relative;
+  z-index: 10;
+  margin: 24px 0;
+  padding: 0 8px;
+  font-size: 1.6rem;
+  font-weight: normal;
 }
 
 .swiper-wrapper {
