@@ -1,0 +1,166 @@
+body {
+  --color-theme: rgb(54, 141, 134);
+  --color-bg: rgb(241, 239, 233);
+  --color-text: rgb(50, 50, 66);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.mt1 {
+  margin-top: 1em;
+}
+
+section {
+  margin-bottom: 32px;
+  padding: 8px;
+  padding-top: 24px;
+  &:before {
+    position: relative;
+    top: -24px;
+    left: 12.5%;
+    content: "";
+    display: inline-block;
+    width: 75%;
+    height: 1px;
+    background-color: var(--color-theme);
+    text-align: center;
+  }
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+h2, h3, h4 {
+  margin: 0;
+  margin-top: 1em;
+  padding: 0;
+  color: var(--color-theme);
+}
+
+h2 {
+  margin-bottom: 0.66em;
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+ul, ol, li, dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border:none;
+}
+
+ol{
+  counter-reset: listnum;
+  list-style: none;
+  li {
+    position: relative;
+    margin: 0.1em 0;
+    padding-left: 1.5em;
+    &:before{
+      counter-increment: listnum;
+      content: counter(listnum);
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      left: 0;
+      width: 1em;
+      color: var(--color-theme);
+      text-align: center;
+    }
+  }
+}
+
+p {
+  margin: 0;
+  margin-bottom: .66em;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+
+a {
+  display: block;
+  color: var(--color-theme);
+  text-decoration: none;
+}
+
+.global-header {
+  padding: 16px;
+  font-size: 3.6rem;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.list-samples {
+
+  .list-item {
+    margin-bottom: 16px;
+    a {
+      position: relative;
+      padding: 0 8px;
+      border-left: 6px solid var(--color-theme);
+      &:before, &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        color: currentColor;
+        opacity: 0.3;
+      }
+      &::before {
+        top: 50%;
+        right: 0.66em;
+        width: 3em;
+        height: 0;
+        border: 1px dashed currentColor;
+      }
+      &:after {
+        top: calc(50% - 0.64em);
+        right: 0;
+        width: 2rem;
+        height: 2rem;
+        border-style: solid;
+        border-color: currentColor;
+        border-width: 3px 3px 0 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .style {
+    font-weight: bold;
+  }
+}
+
+.screensize {
+  display: flex;
+  align-items: center;
+  dd {
+    margin: 0;
+    flex: 1;
+    color: var(--color-theme);
+    font-weight: bold;
+  }
+}

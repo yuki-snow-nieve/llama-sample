@@ -2,165 +2,33 @@
 <head>
   <meta name="robots" content="noindex" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      font-size: 62.5%;
-    }
-
-    body {
-      font-size: 1.6rem;
-      line-height: 1.6;
-      background-color: rgb(241, 239, 233);
-      color: rgb(50, 50, 66);
-    }
-
-    section {
-      margin-bottom: 32px;
-      padding-top: 24px;
-      &:before {
-        position: relative;
-        top: -24px;
-        left: 12.5%;
-        content: "";
-        display: inline-block;
-        width: 75%;
-        height: 1px;
-        background-color: rgb(54, 141, 134);
-        text-align: center;
-      }
-    }
-
-    h2 {
-      margin: 0;
-      padding: 0 0 0 8px;
-      color: rgb(54, 141, 134);
-      font-size: 18px;
-    }
-
-    ul, ol, li {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      border:none;
-    }
-
-    ol{
-      counter-reset: listnum;
-      list-style: none;
-      li::before{
-        counter-increment: listnum;
-        content: counter(listnum);
-        color: rgb(54, 141, 134);
-        margin-right: 0.5em;
-      }
-    }
-
-    ul, ol {
-      padding: 16px;
-
-    }
-
-    p {
-      margin: 0 8px;
-      margin-bottom: .66em;
-      text-align: justify;
-      text-justify: inter-ideograph;
-    }
-
-
-    a {
-      display: block;
-      color: rgb(54, 141, 134);
-      text-decoration: none;
-    }
-
-    .global-header {
-      padding: 16px;
-      font-size: 3.6rem;
-      font-weight: bold;
-      opacity: 0.5;
-    }
-
-    .list-samples {
-
-      .list-item {
-        margin-bottom: 16px;
-        a {
-          position: relative;
-          padding: 0 8px;
-          border-left: 6px solid rgb(54, 141, 134);
-          &:before, &:after {
-            content: "";
-            display: block;
-            position: absolute;
-            color: currentColor;
-            opacity: 0.3;
-          }
-          &::before {
-            top: 50%;
-            right: 0.66em;
-            width: 3em;
-            height: 0;
-            border: 1px dashed currentColor;
-          }
-          &:after {
-            top: calc(50% - 0.64em);
-            right: 0;
-            width: 2rem;
-            height: 2rem;
-            border-style: solid;
-            border-color: currentColor;
-            border-width: 3px 3px 0 0;
-            transform: rotate(45deg);
-          }
-        }
-      }
-
-      .style {
-        font-weight: bold;
-      }
-    }
-
-    .screensize {
-      display: flex;
-      margin-left: 18px;
-      align-items: center;
-      &:before {
-        content: "";
-        height: 1px;
-        width: 2em;
-        background-color: rgb(54, 141, 134);;
-      }
-      dt {
-      }
-      dd {
-        margin: 0;
-        flex: 1;
-        color: rgb(54, 141, 134);
-        font-weight: bold;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./style.css" />
   <script src="./script.js"></script>
 </head>
 <body>
   <header class="global-header">samples</header>
   <div class="main">
     <section>
-      <h2>スクリーンサイズについて</h2>
-      <p>サンプルは現在、幅：390px / 高：844px の画面サイズでのみ表示を確認しております。他のサイズでは崩れる可能性があるので、ご了承ください。</p>
-      <h3>ご利用の端末のスクリーンサイズ</h3>
-      <dl class="screensize">
-        <dt>幅：</dt><dd><span id="windowW"></span></dd>
-      </dl>
-      <dl class="screensize">
-        <dt>高：</dt><dd><span id="windowH"></span></dd>
-      </dl>
+      <h2>動作環境について</h2>
+      <div class="section">
+        <p>サンプルは現在、下記の環境でのみ表示を確認しております。他の環境では崩れる可能性があるので、ご了承ください。</p>
+        <h4>画面サイズ</h4>
+        <ul>
+          <li>幅：390px / 高：844px</li>
+          <li>幅：412px / 高：833px</li>
+        </ul>
+        <h4>ブラウザ</h4>
+        <div>Chroeme ver.130.0</div>
+      </div>
+      <div class="section">
+        <h3>ご利用の端末のスクリーンサイズ</h3>
+        <dl class="screensize">
+          <dt>幅：</dt><dd><span id="windowW"></span></dd>
+        </dl>
+        <dl class="screensize">
+          <dt>高：</dt><dd><span id="windowH"></span></dd>
+        </dl>
+      </div>
     </section>
     <section>
       <h2>サンプルリスト</h2>
@@ -191,8 +59,8 @@
     <section>
       <h2>サンプル中作品タイトル</h2>
       <ol>
-        <li>JOKER - FOLIE A DEUX</li>
-        <li>THE 聖おにいさん ホーリーメン vs 悪魔軍団</li>
+        <li>ジョーカー：フォリ・ア・ドゥ </li>
+        <li>聖☆おにいさん THE MOVIE ホーリーメンVS悪魔軍団</li>
         <li>ふしぎ駄菓子屋 銭天堂</li>
         <li>愛を耕すひと</li>
         <li>スオミの話をしよう</li>
@@ -202,6 +70,7 @@
         <li>六人の嘘つきな大学生</li>
         <li>バンババンバンバンパイヤ</li>
       </ol>
+      <p class="mt1">※パターンによって、スクロールを増やす都合上、銭天童がリストの終わりに複数回挿入されています。</p>
     </section>
   </div>
 </body>
