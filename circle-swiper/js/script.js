@@ -44,6 +44,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
         e.slides.forEach( slide => {
           slide.style.height = swiperItemH;
         });
+
+        expandScrollableArea(swiperItemH);
         e.wrapperEl.style.transform = `translate3d(0, ${swiperItemH}px, 0)`;
       },
       slideNextTransitionStart: (e) => {
@@ -103,6 +105,12 @@ document.addEventListener( 'DOMContentLoaded', () => {
   function deletePlayerItem(item) {
     const iframe = item.querySelector('iframe')
     if (iframe) { iframe.remove(); }
+  }
+
+  function expandScrollableArea(amount) {
+    console.log(amount)
+    listCanvas.style.setProperty("--space-height", `${amount}px`); // css側でtopの値に入れるため、単位を含める
+    console.log(listCanvas)
   }
 
   listCanvas.addEventListener('click', (e) => {
