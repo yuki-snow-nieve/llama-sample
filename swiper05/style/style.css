@@ -159,4 +159,308 @@ button {
 }
 .movie-item:not(.swiper-slide-active) img {
   opacity: 0.3;
+}
+
+.swiper-slide {
+  position: relative;
+}
+.swiper-slide[index="-50"] {
+  right: 1000vw;
+}
+.swiper-slide[index="-49"] {
+  right: 980vw;
+}
+.swiper-slide[index="-48"] {
+  right: 960vw;
+}
+.swiper-slide[index="-47"] {
+  right: 940vw;
+}
+.swiper-slide[index="-46"] {
+  right: 920vw;
+}
+.swiper-slide[index="-45"] {
+  right: 900vw;
+}
+.swiper-slide[index="-44"] {
+  right: 880vw;
+}
+.swiper-slide[index="-43"] {
+  right: 860vw;
+}
+.swiper-slide[index="-42"] {
+  right: 840vw;
+}
+.swiper-slide[index="-41"] {
+  right: 820vw;
+}
+.swiper-slide[index="-40"] {
+  right: 800vw;
+}
+.swiper-slide[index="-39"] {
+  right: 780vw;
+}
+.swiper-slide[index="-38"] {
+  right: 760vw;
+}
+.swiper-slide[index="-37"] {
+  right: 740vw;
+}
+.swiper-slide[index="-36"] {
+  right: 720vw;
+}
+.swiper-slide[index="-35"] {
+  right: 700vw;
+}
+.swiper-slide[index="-34"] {
+  right: 680vw;
+}
+.swiper-slide[index="-33"] {
+  right: 660vw;
+}
+.swiper-slide[index="-32"] {
+  right: 640vw;
+}
+.swiper-slide[index="-31"] {
+  right: 620vw;
+}
+.swiper-slide[index="-30"] {
+  right: 600vw;
+}
+.swiper-slide[index="-29"] {
+  right: 580vw;
+}
+.swiper-slide[index="-28"] {
+  right: 560vw;
+}
+.swiper-slide[index="-27"] {
+  right: 540vw;
+}
+.swiper-slide[index="-26"] {
+  right: 520vw;
+}
+.swiper-slide[index="-25"] {
+  right: 500vw;
+}
+.swiper-slide[index="-24"] {
+  right: 480vw;
+}
+.swiper-slide[index="-23"] {
+  right: 460vw;
+}
+.swiper-slide[index="-22"] {
+  right: 440vw;
+}
+.swiper-slide[index="-21"] {
+  right: 420vw;
+}
+.swiper-slide[index="-20"] {
+  right: 400vw;
+}
+.swiper-slide[index="-19"] {
+  right: 380vw;
+}
+.swiper-slide[index="-18"] {
+  right: 360vw;
+}
+.swiper-slide[index="-17"] {
+  right: 340vw;
+}
+.swiper-slide[index="-16"] {
+  right: 320vw;
+}
+.swiper-slide[index="-15"] {
+  right: 300vw;
+}
+.swiper-slide[index="-14"] {
+  right: 280vw;
+}
+.swiper-slide[index="-13"] {
+  right: 260vw;
+}
+.swiper-slide[index="-12"] {
+  right: 240vw;
+}
+.swiper-slide[index="-11"] {
+  right: 220vw;
+}
+.swiper-slide[index="-10"] {
+  right: 200vw;
+}
+.swiper-slide[index="-9"] {
+  right: 180vw;
+}
+.swiper-slide[index="-8"] {
+  right: 160vw;
+}
+.swiper-slide[index="-7"] {
+  right: 140vw;
+}
+.swiper-slide[index="-6"] {
+  right: 120vw;
+}
+.swiper-slide[index="-5"] {
+  right: 100vw;
+}
+.swiper-slide[index="-4"] {
+  right: 80vw;
+}
+.swiper-slide[index="-3"] {
+  right: 60vw;
+}
+.swiper-slide[index="-2"] {
+  right: 40vw;
+}
+.swiper-slide[index="-1"] {
+  right: 20vw;
+}
+.swiper-slide[index="1"] {
+  left: 20vw;
+}
+.swiper-slide[index="2"] {
+  left: 40vw;
+}
+.swiper-slide[index="3"] {
+  left: 60vw;
+}
+.swiper-slide[index="4"] {
+  left: 80vw;
+}
+.swiper-slide[index="5"] {
+  left: 100vw;
+}
+.swiper-slide[index="6"] {
+  left: 120vw;
+}
+.swiper-slide[index="7"] {
+  left: 140vw;
+}
+.swiper-slide[index="8"] {
+  left: 160vw;
+}
+.swiper-slide[index="9"] {
+  left: 180vw;
+}
+.swiper-slide[index="10"] {
+  left: 200vw;
+}
+.swiper-slide[index="11"] {
+  left: 220vw;
+}
+.swiper-slide[index="12"] {
+  left: 240vw;
+}
+.swiper-slide[index="13"] {
+  left: 260vw;
+}
+.swiper-slide[index="14"] {
+  left: 280vw;
+}
+.swiper-slide[index="15"] {
+  left: 300vw;
+}
+.swiper-slide[index="16"] {
+  left: 320vw;
+}
+.swiper-slide[index="17"] {
+  left: 340vw;
+}
+.swiper-slide[index="18"] {
+  left: 360vw;
+}
+.swiper-slide[index="19"] {
+  left: 380vw;
+}
+.swiper-slide[index="20"] {
+  left: 400vw;
+}
+.swiper-slide[index="21"] {
+  left: 420vw;
+}
+.swiper-slide[index="22"] {
+  left: 440vw;
+}
+.swiper-slide[index="23"] {
+  left: 460vw;
+}
+.swiper-slide[index="24"] {
+  left: 480vw;
+}
+.swiper-slide[index="25"] {
+  left: 500vw;
+}
+.swiper-slide[index="26"] {
+  left: 520vw;
+}
+.swiper-slide[index="27"] {
+  left: 540vw;
+}
+.swiper-slide[index="28"] {
+  left: 560vw;
+}
+.swiper-slide[index="29"] {
+  left: 580vw;
+}
+.swiper-slide[index="30"] {
+  left: 600vw;
+}
+.swiper-slide[index="31"] {
+  left: 620vw;
+}
+.swiper-slide[index="32"] {
+  left: 640vw;
+}
+.swiper-slide[index="33"] {
+  left: 660vw;
+}
+.swiper-slide[index="34"] {
+  left: 680vw;
+}
+.swiper-slide[index="35"] {
+  left: 700vw;
+}
+.swiper-slide[index="36"] {
+  left: 720vw;
+}
+.swiper-slide[index="37"] {
+  left: 740vw;
+}
+.swiper-slide[index="38"] {
+  left: 760vw;
+}
+.swiper-slide[index="39"] {
+  left: 780vw;
+}
+.swiper-slide[index="40"] {
+  left: 800vw;
+}
+.swiper-slide[index="41"] {
+  left: 820vw;
+}
+.swiper-slide[index="42"] {
+  left: 840vw;
+}
+.swiper-slide[index="43"] {
+  left: 860vw;
+}
+.swiper-slide[index="44"] {
+  left: 880vw;
+}
+.swiper-slide[index="45"] {
+  left: 900vw;
+}
+.swiper-slide[index="46"] {
+  left: 920vw;
+}
+.swiper-slide[index="47"] {
+  left: 940vw;
+}
+.swiper-slide[index="48"] {
+  left: 960vw;
+}
+.swiper-slide[index="49"] {
+  left: 980vw;
+}
+.swiper-slide[index="50"] {
+  left: 1000vw;
 }/*# sourceMappingURL=style.css.map */

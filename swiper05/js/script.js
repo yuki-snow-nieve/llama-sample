@@ -23,6 +23,17 @@ document.addEventListener( 'DOMContentLoaded', () => {
     centeredSlides: true,
     lazyPreloadPrevNext: 2,
     on: {
+      activeIndexChange: (e) => {
+        for (let i = 1; i < e.activeIndex + 1; i++) {
+          e.slides[e.activeIndex - i].setAttribute('index', -1 * i)
+        }
+        for (let i = 0; i < 100; i++) {
+          if (!e.slides[e.activeIndex + i].classList.contains('swiper-slide-visible')) {
+            break;
+          }
+          e.slides[e.activeIndex + i].setAttribute('index', i)
+        }
+      },
       slideChangeTransitionStart: () => {
         movieDetailBox.style.opacity = 0;
       },

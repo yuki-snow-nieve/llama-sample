@@ -59,7 +59,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
       slideChangeTransitionEnd: (e) => {
         setMovieInfo(e.slides[e.activeIndex]);
         startAutoPlay(e.slides[e.activeIndex]);
-    //     // startAutoPlay(e.slides[e.snapIndex]);
       }
     }
   });
