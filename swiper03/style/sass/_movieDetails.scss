@@ -1,32 +1,5 @@
 @use "./settings.scss";
 
-.movie-title {
-  text-align: justify;
-  text-justify: inter-ideograph;
-}
-
-.buttons-reaction {
-  display: flex;
-  justify-content: flex-end;
-  gap: 16px;
-
-  button {
-    width: 42px;
-    height: 42px;
-    border-radius: 6px;
-    background-color: rgba(settings.$theme-main-text, 0.2);
-    border-radius: 50%;
-    font-size: 2.4rem;
-    font-weight: bold;
-  }
-}
-
-.button-detail_show {
-  margin-top: 24px;
-  width: 100%;
-}
-
-
 .section-details {
 
   &.is_active {
@@ -69,6 +42,31 @@
 .details-footer {
 }
 
+.movie-title {
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+.buttons-reaction {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+
+  button {
+    width: 42px;
+    height: 42px;
+    border-radius: 6px;
+    background-color: rgba(settings.$theme-main-text, 0.2);
+    border-radius: 50%;
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+}
+
+.button-detail_show {
+  margin-top: 24px;
+  width: 100%;
+}
 
 .button-detail_hide {
   display: block;
