@@ -19,17 +19,17 @@ document.addEventListener( 'DOMContentLoaded', () => {
       progressMultiplier: 0.6,
       prev: {
         // translate: [ 横, 縦, 奥行]
-        translate: ['-20vw', '-75%', '-60px'],
+        translate: ['-20vw', '-75%', '-50px'],
         // rotate: [横軸, 縦軸, 奥行軸]
-        rotate: [-45, 0, 0],
-        scale: 0.8,
+        rotate: [-46, 0, 0],
+        scale: 0.7,
       },
       next: {
         // translate: [ 横, 縦, 奥行]
-        translate: ['20vw', '75%', '-60px'],
+        translate: ['20vw', '75%', '-50px'],
         // rotate: [横軸, 縦軸, 奥行軸]
-        rotate: [45, 0, 0],
-        scale: 0.8,
+        rotate: [46, 0, 0],
+        scale: 0.7,
       }
     },
     // history: {
