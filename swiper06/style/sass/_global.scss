@@ -18,14 +18,14 @@ body {
 
 
 .global-header {
-  position: sticky;
+  position: absolute;
   display: flex;
   align-items: center;
   top: 0;
   left: 0;
   right: 0;
   z-index: settings.$layer-globalHeader;
-  height: 42px;
+  height: settings.$sizeH_globalHeader;
   background-color: rgba(settings.$theme-main-background, 0.66);
   background: rgb(2,0,36);
   background: linear-gradient(180deg, rgba(settings.$theme-main-background, 0.8) 0%, rgba(settings.$theme-main-background, 0.8) 80%, rgba(settings.$theme-main-background, 0) 100%);

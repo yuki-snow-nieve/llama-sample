@@ -1,5 +1,8 @@
 document.addEventListener( 'DOMContentLoaded', () => {
-  const movieDetailBox = document.getElementById('area_detail')
+  const globalHeader = document.getElementById('globalHeader');
+  const globalHeaderHeight = globalHeader.offsetHeight;
+  const movieDetailBox = document.getElementById('area_detail');
+  let movieDetailBoxHeight = movieDetailBox.offsetHeight;
 
   const button_showDetail = document.getElementById('button-detail_show');
   const button_hideDetail = document.getElementById('button-detail_hide');
@@ -13,20 +16,20 @@ document.addEventListener( 'DOMContentLoaded', () => {
     effect: 'creative',
     creativeEffect: {
       limitProgress: 50,
-      // progressMultiplier: 0.5,
+      progressMultiplier: 0.6,
       prev: {
         // translate: [ 横, 縦, 奥行]
-        translate: ['-20vw', `0.6 * -90%`, 0],
+        translate: ['-20vw', '-75%', '-60px'],
         // rotate: [横軸, 縦軸, 奥行軸]
-        rotate: [0, 0, 0],
-        scale: 0.6,
+        rotate: [-45, 0, 0],
+        scale: 0.8,
       },
       next: {
         // translate: [ 横, 縦, 奥行]
-        translate: ['20vw', `0.6 * 90%`, 0],
+        translate: ['20vw', '75%', '-60px'],
         // rotate: [横軸, 縦軸, 奥行軸]
-        rotate: [0, 0, 0],
-        scale: 0.6,
+        rotate: [45, 0, 0],
+        scale: 0.8,
       }
     },
     // history: {
@@ -37,33 +40,31 @@ document.addEventListener( 'DOMContentLoaded', () => {
     lazyPreloadPrevNext: 2,
     on: {
       activeIndexChange: (e) => {
-      //   for (let i = 1; i < e.activeIndex + 1; i++) {
-      //     e.slides[e.activeIndex - i].setAttribute('index', -1 * i)
-      //   }
-      //   for (let i = 0; i < 100; i++) {
-      //     if (!e.slides[e.activeIndex + i].classList.contains('swiper-slide-visible')) {
-      //       break;
-      //     }
-      //     e.slides[e.activeIndex + i].setAttribute('index', i)
-      //   }
       },
       slideChangeTransitionStart: (e) => {
-        deleteMovieInfo(e.slides[e.activeIndex - 1]);
+        // e.slides.forEach(slide => {
+        //   let iframe = slide.querySelector('iframe');
+        //   if(iframe) {
+        //     iframe.remove();
+        //   }
+        // });
+      },
+      slideNextTransitionStart: (e) => {
         // deletePlayerItem(e.slides[e.activeIndex - 1]);
+      },
+      slidePrevTransitionStart: (e) => {
+        // deletePlayerItem(e.slides[e.activeIndex + 1]);
       },
       slideChangeTransitionEnd: (e) => {
         setMovieInfo(e.slides[e.activeIndex]);
-        // startAutoPlay(e.slides[e.activeIndex]);
+        startAutoPlay(e.slides[e.activeIndex]);
       }
     }
   });
 
-  function deleteMovieInfo(item) {
-
-  }
-
   function setMovieInfo(item) {
-
+    movieDetailBoxHeight = movieDetailBox.offsetHeight;
+    movieDetailBox.style.height =  movieDetailBoxHeight;
   }
 
   function deletePlayerItem(item) {
@@ -89,10 +90,12 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
   button_showDetail.addEventListener( 'click', () => {
     movieDetailBox.classList.add('is_active');
+    movieDetailBox.style.height =  window.innerHeight - globalHeaderHeight;
   })
 
   button_hideDetail.addEventListener( 'click', () => {
     movieDetailBox.classList.remove('is_active');
+    movieDetailBox.style.height =  movieDetailBoxHeight;
   })
 
 });
