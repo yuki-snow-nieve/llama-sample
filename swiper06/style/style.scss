@@ -9,6 +9,7 @@
 }
 
 .section-movies {
+  --space-height: 100px;
   overflow: hidden;
 }
 
@@ -29,6 +30,15 @@
 .swiper-wrapper {
   margin-top: 30vh;
   transform: translateX(calc(0)) !important;
+  
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: calc(-1 * var(--space-height));
+    width: 100%;
+    height: var(--space-height);
+  }
 }
 
 .swiper-slide{

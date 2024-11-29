@@ -1,6 +1,8 @@
 document.addEventListener( 'DOMContentLoaded', () => {
   const globalHeader = document.getElementById('globalHeader');
   const globalHeaderHeight = globalHeader.offsetHeight;
+  const movies = document.getElementById('movies');
+  const listCanvas = document.getElementById('listCanvas');
   const movieDetailBox = document.getElementById('area_detail');
   let movieDetailBoxHeight = movieDetailBox.offsetHeight;
 
@@ -39,7 +41,9 @@ document.addEventListener( 'DOMContentLoaded', () => {
     centeredSlides: true,
     lazyPreloadPrevNext: 2,
     on: {
-      activeIndexChange: (e) => {
+      init: () => {
+        let amount = movies.querySelector('.swiper-slide-active').getBoundingClientRect().top - globalHeaderHeight;
+        listCanvas.style.setProperty("--space-height", `${amount}px`); // css側でtopの値に入れるため、単位を含める
       },
       slideChangeTransitionStart: (e) => {
         // e.slides.forEach(slide => {
