@@ -5,25 +5,20 @@
 @use "./sass/movieDetails.scss";
 
 .main {
-  position: relative;
-  height: calc(100vdh - #{settings.$sizeH_globalHeader});
-  height: calc(100vh - #{settings.$sizeH_globalHeader});
+  // position: relative;
 }
 
 .section-movies {
-  grid-column: 1/2;
-  grid-row: 1/2;
   overflow: hidden;
 }
 
 .section-details {
-  grid-column: 1/2;
-  grid-row: 1/2;
   z-index: settings.$layer-detail;
 }
 
 .list-title {
-  position: relative;
+  position: absolute;
+  top: settings.$sizeH_globalHeader;
   z-index: 10;
   margin: 24px 0;
   padding: 0 8px;
@@ -32,7 +27,7 @@
 }
 
 .swiper-wrapper {
-  margin-top: 15vh;
+  margin-top: 30vh;
   transform: translateX(calc(0)) !important;
 }
 
@@ -50,5 +45,35 @@
 }
 
 .movie-item {
-  height: fit-content;
+  position: relative;
+  overflow: visible !important;
+  height: auto;
+  aspect-ratio: 16/9;
+  box-shadow: 0 0 6px 9px rgba(settings.$theme-main-background, 0.2);
+
+  img {
+    position: relative;
+    z-index: 1;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    height: fit-content;
+    aspect-ratio: 16 / 9;
+  }
+
+  .movie-item-header {
+    padding: 0 16px;
+    background: rgba(settings.$theme-main-background, 0.2);  
+  }
+
+  .movie-item-footer {
+    padding: 0 16px;
+    background: rgba(settings.$theme-main-background, 0.2);  
+  }
 }

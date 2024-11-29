@@ -13,19 +13,20 @@ document.addEventListener( 'DOMContentLoaded', () => {
     effect: 'creative',
     creativeEffect: {
       limitProgress: 50,
+      // progressMultiplier: 0.5,
       prev: {
         // translate: [ 横, 縦, 奥行]
-        translate: ['-20vw', '-60%', '-10px'],
+        translate: ['-20vw', `0.6 * -90%`, 0],
         // rotate: [横軸, 縦軸, 奥行軸]
         rotate: [0, 0, 0],
-        scale: 0.8,
+        scale: 0.6,
       },
       next: {
         // translate: [ 横, 縦, 奥行]
-        translate: ['20vw', '60%', '-10px'],
+        translate: ['20vw', `0.6 * 90%`, 0],
         // rotate: [横軸, 縦軸, 奥行軸]
         rotate: [0, 0, 0],
-        scale: 0.8,
+        scale: 0.6,
       }
     },
     // history: {
@@ -48,11 +49,11 @@ document.addEventListener( 'DOMContentLoaded', () => {
       },
       slideChangeTransitionStart: (e) => {
         deleteMovieInfo(e.slides[e.activeIndex - 1]);
-        deletePlayerItem(e.slides[e.activeIndex - 1]);
+        // deletePlayerItem(e.slides[e.activeIndex - 1]);
       },
       slideChangeTransitionEnd: (e) => {
         setMovieInfo(e.slides[e.activeIndex]);
-        startAutoPlay(e.slides[e.activeIndex]);
+        // startAutoPlay(e.slides[e.activeIndex]);
       }
     }
   });

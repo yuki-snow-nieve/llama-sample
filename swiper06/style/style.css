@@ -87,6 +87,7 @@ button {
 }
 
 .section-details {
+  display: none;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -100,13 +101,18 @@ button {
 .section-details .details-body {
   padding: 0 16px;
 }
+.section-details.is_active {
+  height: calc(100% - 42px);
+}
 .section-details.is_active .button-detail_hide, .section-details.is_active #button-detail_hide {
   display: block;
 }
 .section-details.is_active .details-body {
-  flex: 1;
-  height: auto;
   padding: 24px 16px;
+}
+.section-details.is_active .details-footer {
+  position: sticky;
+  bottom: 0;
 }
 .section-details.is_active #button-detail_show {
   display: none;

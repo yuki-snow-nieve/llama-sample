@@ -2,6 +2,7 @@
 
 
 .section-details {
+  display: none;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -17,15 +18,21 @@
   }
 
   &.is_active {
+    height: calc(100% - settings.$sizeH_globalHeader);
 
     .button-detail_hide, #button-detail_hide {
       display: block;
     }
     .details-body {
-      flex: 1;
-      height: auto;
+      // flex: 1;
+      // height: auto;
       padding: 24px 16px;
-    } 
+    }
+
+    .details-footer {
+      position: sticky;
+      bottom: 0;
+    }
 
     #button-detail_show {
       display: none;
