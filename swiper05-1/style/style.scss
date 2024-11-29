@@ -3,6 +3,7 @@
 @use "./sass/global.scss";
 @use "./sass/reset.scss";
 @use "./sass/movieDetails.scss";
+@use "./sass/decoration";
 
 .main {
   // position: relative;
@@ -42,6 +43,13 @@
       opacity: 0.16;
     }
   }
+}
+
+.swiper-controls {
+  position: absolute;
+  bottom: 42px;
+  width: 100%;
+  height: 42px;
 }
 
 .movie-item {

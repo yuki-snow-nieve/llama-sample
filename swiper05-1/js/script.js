@@ -5,6 +5,9 @@ document.addEventListener( 'DOMContentLoaded', () => {
   const movieDetailBox = document.getElementById('area_detail');
   let movieDetailBoxHeight = movieDetailBox.offsetHeight;
 
+  const button_swiper_next = document.getElementById('swiper-button_next')
+  const button_swiper_prev = document.getElementById('swiper-button_prev')
+
   const button_showDetail = document.getElementById('button-detail_show');
   const button_hideDetail = document.getElementById('button-detail_hide');
 
@@ -60,6 +63,14 @@ document.addEventListener( 'DOMContentLoaded', () => {
       }
     }
   });
+
+  // button_swiper_next.addEventListener( 'click', () => {
+  //   swiper.slideNext();
+  // })
+
+  // button_swiper_prev.addEventListener( 'click', () => {
+  //   swiper.slidePrev();
+  // })
 
   function setMovieInfo(item) {
     movieDetailBoxHeight = movieDetailBox.offsetHeight;
