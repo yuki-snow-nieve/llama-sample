@@ -220,6 +220,7 @@ button {
 }
 
 .section-movies {
+  --space-height: 100px;
   overflow: hidden;
 }
 
@@ -240,6 +241,14 @@ button {
 .swiper-wrapper {
   margin-top: 30vh;
   transform: translateX(0) !important;
+}
+.swiper-wrapper:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(-1 * var(--space-height));
+  width: 100%;
+  height: var(--space-height);
 }
 
 .swiper-slide-active {
