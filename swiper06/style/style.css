@@ -31,10 +31,9 @@ body {
 }
 
 .main {
-  display: grid;
-  grid-template-rows: 100%;
-  grid-template-columns: 100%;
+  width: 100dvw;
   width: 100vw;
+  height: 100dvh;
   height: 100vh;
 }
 
@@ -93,7 +92,7 @@ button {
   width: 100%;
   background: #000000;
   background: rgba(0, 0, 0, 0.92);
-  transition: all 10ms ease-in-out;
+  transition: all 60ms ease-in-out;
 }
 .section-details .button-detail_hide, .section-details #button-detail_hide {
   display: none;
@@ -153,8 +152,8 @@ button {
   text-align: justify;
   text-justify: inter-ideograph;
   margin: 0.66em 0;
-  font-size: 2.2rem;
-  line-height: 1.6;
+  font-size: 2rem;
+  line-height: 1.4;
 }
 
 .button-detail_show {
