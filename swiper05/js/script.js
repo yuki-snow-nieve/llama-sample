@@ -1,6 +1,7 @@
 document.addEventListener( 'DOMContentLoaded', () => {
   const globalHeader = document.getElementById('globalHeader');
   const globalHeaderHeight = globalHeader.offsetHeight;
+
   const listCanvas = document.getElementById('listCanvas');
   const movies = document.getElementById('movies');
   const movieDetailBox = document.getElementById('area_detail');
@@ -40,31 +41,24 @@ document.addEventListener( 'DOMContentLoaded', () => {
     lazyPreloadPrevNext: 2,
     on: {
       init: () => {
+        //リスト表示の上部部分にタッチ反応エリアを作る(疑似要素にサイズを与える)
         let amount = movies.querySelector('.swiper-slide-active').getBoundingClientRect().top - globalHeaderHeight;
         listCanvas.style.setProperty("--space-height", `${amount}px`); // css側でtopの値に入れるため、単位を含める
       },
-      slideChangeTransitionStart: (e) => {
-        // e.slides.forEach(slide => {
-        //   let iframe = slide.querySelector('iframe');
-        //   if(iframe) {
-        //     iframe.remove();
-        //   }
-        // });
-      },
       slideNextTransitionStart: (e) => {
-        // deletePlayerItem(e.slides[e.activeIndex - 1]);
+        deletePlayerItem(e.slides[e.activeIndex - 1]);
       },
       slidePrevTransitionStart: (e) => {
-        // deletePlayerItem(e.slides[e.activeIndex + 1]);
+        deletePlayerItem(e.slides[e.activeIndex + 1]);
       },
       slideChangeTransitionEnd: (e) => {
-        setMovieInfo(e.slides[e.activeIndex]);
+        setMovieInfoSize();
         startAutoPlay(e.slides[e.activeIndex]);
       }
     }
   });
 
-  function setMovieInfo(item) {
+  function setMovieInfoSize() {
     movieDetailBoxHeight = movieDetailBox.offsetHeight;
     movieDetailBox.style.height =  movieDetailBoxHeight;
   }

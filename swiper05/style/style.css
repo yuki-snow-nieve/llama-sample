@@ -153,8 +153,8 @@ button {
   text-align: justify;
   text-justify: inter-ideograph;
   margin: 0.66em 0;
-  font-size: 2.2rem;
-  line-height: 1.6;
+  font-size: 2rem;
+  line-height: 1.4;
 }
 
 .button-detail_show {
