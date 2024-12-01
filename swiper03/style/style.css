@@ -123,6 +123,9 @@ body {
 }
 
 .movie-title {
+  margin: 0.66em 0;
+  font-size: 2rem;
+  line-height: 1.4;
   text-align: justify;
   text-justify: inter-ideograph;
 }
