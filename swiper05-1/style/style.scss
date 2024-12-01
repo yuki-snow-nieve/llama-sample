@@ -5,10 +5,6 @@
 @use "./sass/movieDetails.scss";
 @use "./sass/decoration";
 
-.main {
-  // position: relative;
-}
-
 .section-movies {
   --space-height: 100px;
   overflow: hidden;
@@ -50,7 +46,7 @@
   &:not(.swiper-slide-active) {
     background-color: settings.$theme-main-background;
     img {
-      opacity: 0.16;
+      opacity: 0.25;
     }
   }
 }
