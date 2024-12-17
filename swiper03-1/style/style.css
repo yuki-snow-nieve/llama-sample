@@ -1,0 +1,259 @@
+@charset "UTF-8";
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+ul, ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 0.66em;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+button {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.global-header {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 42px;
+  background-color: rgba(0, 0, 0, 0.66);
+  background: rgba(0, 0, 0, 0.86);
+  font-weight: bold;
+  color: #999999;
+}
+
+.main {
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.button_solid {
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  height: 42px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  line-height: 1;
+}
+
+.button_border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 1em;
+  border: 2px solid currentColor;
+  text-decoration: none;
+  color: inherit;
+}
+
+.section-details {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 5s, visibility 0s ease 5s;
+  position: absolute;
+  top: 42px;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.86);
+  transition: height 200ms ease;
+}
+.section-details.is_active {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.details-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.details-header {
+  position: relative;
+}
+
+.details-body {
+  flex: 1;
+  padding: 24px 0;
+  overflow: scroll;
+}
+
+.movie-title {
+  margin: 0.66em 0;
+  font-size: 2rem;
+  line-height: 1.4;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+.buttons-reaction {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+.buttons-reaction button {
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.button-detail_show {
+  margin-top: 24px;
+  width: 100%;
+}
+
+.button-detail_hide {
+  display: block;
+  margin-left: auto;
+  width: 42px;
+  height: 42px;
+  font-size: 42px;
+}
+
+.section-movies {
+  position: relative;
+}
+.section-movies:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vw;
+  height: 120vw;
+  border: 1px solid white;
+  border-radius: 50%;
+  translate: -150vw calc(-1 * var(--space-height) - 25%);
+  opacity: 0.33;
+}
+
+.guide {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  bottom: 16px;
+  right: 8px;
+  opacity: 0.3;
+}
+.guide .guide-prev, .guide .guide-next {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+}
+.guide .guide-prev:before {
+  content: "↑";
+}
+.guide .guide-next:after {
+  content: "↓";
+}
+
+.section-movies {
+  --space-height: 100px;
+  width: 100%;
+}
+
+.list-title {
+  position: absolute;
+  top: 66px;
+  z-index: 10;
+  width: 100%;
+  margin: 0;
+  padding: 8px;
+  box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+.swiper-wrapper {
+  position: relative;
+}
+.swiper-wrapper:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(-1 * var(--space-height));
+  width: 100%;
+  height: var(--space-height);
+}
+
+.movie-item {
+  position: relative;
+  overflow: visible !important;
+}
+.movie-item img {
+  position: relative;
+  z-index: 1;
+}
+.movie-item iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.movie-item .movie-item-header {
+  padding: 0 16px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.movie-item .movie-item-footer {
+  padding: 0 16px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.swiper-slide {
+  transform-origin: 0 50%;
+}
+.swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next) {
+  opacity: 0 !important;
+}/*# sourceMappingURL=style.css.map */
