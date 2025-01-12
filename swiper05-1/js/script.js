@@ -22,7 +22,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
       progressMultiplier: 0.6,
       prev: {
         // translate: [ 横, 縦, 奥行]
-        translate: ['-20vw', '-80%', '-10px'],
+        translate: ['-20vw', '-8z0%', '-10px'],
         // rotate: [横軸, 縦軸, 奥行軸]
         scale: 0.8,
       },

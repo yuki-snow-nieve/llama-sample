@@ -1,4 +1,6 @@
 document.addEventListener( 'DOMContentLoaded', () => {
+  const globalHeader = document.getElementById('globalHeader');
+  const globalHeaderHeight = globalHeader.offsetHeight;
 
   const listCanvas = document.getElementById('listCanvas');
   let canvasW = listCanvas.offsetWidth;
@@ -28,14 +30,14 @@ document.addEventListener( 'DOMContentLoaded', () => {
         // translate: [ 横, 縦, 奥行]
         translate: [0, '-100%', 0],
         // rotate: [横軸, 縦軸, 奥行軸]
-        rotate: [0, 0, -30],
-        scale: 0.4,
+        rotate: [0, 0, -45],
+        scale: 0.46,
         opacity: 0.4
       },
       next: {
         translate: [0, '100%', 0],
-        rotate: [0, 0, 30],
-        scale: 0.4,
+        rotate: [0, 0, 45],
+        scale: 0.46,
         opacity: 0.4
       }
     },
@@ -46,7 +48,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
         });
 
         expandScrollableArea(swiperItemH);
-        e.wrapperEl.style.transform = `translate3d(0, ${swiperItemH}px, 0)`;
+        e.wrapperEl.style.transform = `translate3d(0, ${swiperItemH + globalHeaderHeight}px, 0)`;
       },
       slideNextTransitionStart: (e) => {
         deleteMovieInfo(e.slides[e.activeIndex - 1]);

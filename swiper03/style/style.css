@@ -50,7 +50,7 @@ body {
   left: 0;
   right: 0;
   z-index: 1000;
-  height: 42px;
+  height: 44px;
   background-color: rgba(0, 0, 0, 0.66);
   background: rgba(0, 0, 0, 0.86);
   font-weight: bold;
@@ -91,7 +91,7 @@ body {
   opacity: 0;
   transition: opacity 5s, visibility 0s ease 5s;
   position: absolute;
-  top: 42px;
+  top: 44px;
   bottom: 24px;
   left: 0;
   right: 0;
@@ -171,7 +171,7 @@ body {
   height: 120vw;
   border: 1px solid white;
   border-radius: 50%;
-  translate: -150vw calc(-1 * var(--space-height) - 25%);
+  translate: -150vw calc(-1 * var(--space-height) + 44px - 30vw);
   opacity: 0.33;
 }
 
@@ -204,7 +204,7 @@ body {
 
 .list-title {
   position: absolute;
-  top: 66px;
+  top: 68px;
   z-index: 10;
   width: 100%;
   margin: 0;

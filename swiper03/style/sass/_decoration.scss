@@ -14,7 +14,7 @@
     height: 120vw;
     border: 1px solid white;
     border-radius: 50%;
-    translate: -150vw calc(-1 * var(--space-height) - 25%);
+    translate: -150vw calc(-1 * var(--space-height) + settings.$sizeH_globalHeader - 30vw);
     opacity: 0.33;
   } 
 }
