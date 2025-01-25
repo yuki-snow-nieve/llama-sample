@@ -265,4 +265,10 @@ body {
 }
 .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next) {
   opacity: 0 !important;
+}
+@view-transition {
+  navigation: auto;
+}
+.movie-item {
+  contain: paint;
 }/*# sourceMappingURL=style.css.map */

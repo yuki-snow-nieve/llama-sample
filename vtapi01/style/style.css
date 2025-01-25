@@ -265,4 +265,33 @@ body {
 }
 .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next) {
   opacity: 0 !important;
+}
+@view-transition {
+  navigation: auto;
+}
+/*
+  各アイテムにIDを元にページ遷移前後に
+  一意のtransition nameをつける
+
+  →前後のアイテムをアニメーションできない
+*/
+.movie-item {
+  contain: paint;
+}
+
+::view-transition-group(*) {
+  animation-duration: 5s;
+  transition: rotate 5s ease;
+}
+
+.list-wrapper {
+  view-transition-name: listwrapper;
+  contain: paint;
+}
+
+.list-wrapper.swiper {
+  transform: rotateY(90deg);
+}
+.list-wrapper.swiper-item {
+  transform: rotateY(90deg);
 }/*# sourceMappingURL=style.css.map */

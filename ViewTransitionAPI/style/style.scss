@@ -1,0 +1,26 @@
+@view-transition {
+  navigation: auto;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+#view-index {
+  width: 100vw;
+}
+
+.view-detail {
+  width: 50vw;
+}
+
+.photo-1 {
+  view-transition-name: photo-example-1;
+  contain: paint;
+  opacity: 1;
+}
