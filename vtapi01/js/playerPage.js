@@ -49,7 +49,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
         });
 
         expandScrollableArea(swiperItemH);
-        e.wrapperEl.style.transform = `translate3d(0, ${swiperItemH + globalHeaderHeight}px, 0)`;
+        e.wrapperEl.style.transform = `translate3d(0, ${swiperItemH + globalHeaderHeight}px, 0) rotateY(90deg)`;
       },
       slideNextTransitionStart: (e) => {
         deleteMovieInfo(e.slides[e.activeIndex - 1]);

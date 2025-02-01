@@ -1,0 +1,16 @@
+@use "./settings.scss";
+
+@view-transition {
+  navigation: auto;
+}
+
+
+::view-transition-group(*) {
+  animation-duration: 5s;
+  transition: rotate 5s ease;
+}
+
+
+.movie-list, .movie-item, .list-title {
+  contain: paint;
+}

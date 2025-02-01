@@ -287,11 +287,10 @@ body {
 .list-wrapper {
   view-transition-name: listwrapper;
   contain: paint;
+  transition: rotate 5s ease 5s;
+  transform-style: preserve-3d;
 }
 
 .list-wrapper.swiper {
-  transform: rotateY(90deg);
-}
-.list-wrapper.swiper-item {
   transform: rotateY(90deg);
 }/*# sourceMappingURL=style.css.map */

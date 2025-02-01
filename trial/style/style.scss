@@ -1,0 +1,23 @@
+@use "sass:math";
+@use "./sass/settings.scss";
+@use "./sass/reset.scss";
+
+
+.rotateitem {
+  display: inline-flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+
+  transform: rotateY(90deg);
+
+  .item {
+    $size: 60px;
+    width: $size;
+    height: $size;
+    background-color: #9c64dc;
+    place-items: center;
+
+    transform: rotateY(-90deg);
+  }
+}
+
