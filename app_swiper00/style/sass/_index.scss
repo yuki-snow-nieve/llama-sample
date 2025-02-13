@@ -4,13 +4,14 @@
 .page-index {
 
   .box-feature {
+    // height: 200px !important;
   }
 
   .section-movies {
   }
 
   .list-wrapper {
-    // height: calc(100vh - settings.$sizeH_globalHeader);
+    height: calc(100vh - settings.$sizeH_globalHeader);
   }
 
   .movie-list {
@@ -59,7 +60,7 @@
 
   .swiper-wrapper {
     transform: translateX(calc(0% - 0px)) !important;
-    // margin-top: 30vh;
+    margin-top: 30vh;
   }
 
   .swiper-slide {
