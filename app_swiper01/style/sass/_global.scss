@@ -17,7 +17,7 @@ body {
 }
 
 .global-header {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   top: 0;
@@ -29,6 +29,10 @@ body {
   background: rgba(settings.$theme-main-background, 0.86);
   font-weight: bold;
   color: #999999;
+
+  + .main {
+    margin-top: settings.$sizeH_globalHeader;
+  }
 }
 
 .main {
@@ -36,7 +40,6 @@ body {
   width: 100dvw;
   height: 100vh;
   height: 100dvh;
-  overflow: hidden;
 }
 
 

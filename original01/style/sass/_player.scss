@@ -1,0 +1,35 @@
+@use "sass:math";
+@use "./settings.scss";
+
+
+//ページ設定 
+.page-player {
+
+  .list-title {
+    position: fixed;
+    top: settings.$sizeH_globalHeader;
+    z-index: settings.$layer-listHeader;
+    width: 100%;
+  }
+
+  .movie-list {
+    .movie-item {
+      transform-origin: 0 50%;
+    }
+  }
+}
+
+
+//swiper
+.swiper-wrapper {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: calc(-1 * var(--space-height));
+    width: 100%;
+    height: var(--space-height);
+  }
+}

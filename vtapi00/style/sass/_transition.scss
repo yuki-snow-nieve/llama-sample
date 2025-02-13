@@ -4,13 +4,49 @@
   navigation: auto;
 }
 
+// ::view-transition
+// ├─ ::view-transition-group(root)
+// │ └─ ::view-transition-image-pair(root)
+// │     ├─ ::view-transition-old(root)
+// │     └─ ::view-transition-new(root)
+// └─ ::view-transition-group(view-transition-name)
+//   └─ ::view-transition-image-pair(view-transition-name)
+//       ├─ ::view-transition-old(view-transition-name)
+//       └─ ::view-transition-new(view-transition-name)
 
 ::view-transition-group(*) {
   animation-duration: 5s;
-  transition: rotate 5s ease;
 }
 
+// ::view-transition-old(root),
+// ::view-transition-new(root) {
+//   animation-duration: 0s;
+//   animation: none;
+//   mix-blend-mode: normal;
+//   // display: block;
+// }
 
-.movie-list, .movie-item, .list-title {
-  contain: paint;
+
+// .movie-list, .movie-item, .list-title {
+//   contain: paint;
+// }
+
+// .movie-item {
+//   view-transition-class: item;
+// }
+
+// .list-title {
+//   view-transition-class: title;
+// }
+
+// ::view-transition-group(.item) {
+//   animation-duration: 1s;
+// }
+
+// ::view-transition-group(.title) {
+//   animation-duration: 5s;
+// }
+
+.is_active {
+  view-transition-name: isactive;
 }

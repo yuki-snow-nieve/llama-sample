@@ -447,26 +447,21 @@ body {
   color: inherit;
 }
 
-@view-transition {
-  navigation: auto;
+.page-index .list-features {
+  transform-style: preserve-3d;
 }
-::view-transition-group(*) {
-  animation-duration: 5s;
+.page-index .box-pickup .movie-item {
+  margin-bottom: 40px;
 }
-
-.is_active {
-  view-transition-name: isactive;
-}
-
 .page-index .box-feature {
   margin-bottom: 40px;
 }
-.page-index .movie-list {
+.page-index .box-feature .movie-list {
   overflow-x: auto;
   white-space: nowrap;
   font-size: 0;
 }
-.page-index .movie-list .movie-item {
+.page-index .box-feature .movie-list .movie-item {
   display: inline-block;
   width: 56vw;
   margin-left: 8px;
@@ -483,19 +478,14 @@ body {
   transform-origin: 0 50%;
 }
 
-@keyframes pageload_wrapper {
-  0% {
-    transform: rotateY(0);
-  }
-  100% {
-    transform: rotateY(90deg);
-  }
+.swiper-wrapper {
+  position: relative;
 }
-@keyframes pageload_list {
-  0% {
-    transform: rotateY(0);
-  }
-  100% {
-    transform: rotateY(-90deg);
-  }
+.swiper-wrapper:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(-1 * var(--space-height));
+  width: 100%;
+  height: var(--space-height);
 }/*# sourceMappingURL=style.css.map */

@@ -1,4 +1,37 @@
+//https://developer.mozilla.org/ja/docs/Web/API/View_Transition_API/Using
+// window.addEventListener('pageswap', async (e) => {
+//   console.log(e)
+//   if (e.viewTransition) {
+
+  
+
+//   }
+// })
+
+// window.addEventListener("pagereveal", async (e) => {
+
+
+// })
+
+
 document.addEventListener( 'DOMContentLoaded', () => {
+
+  let links = document.querySelectorAll('#listCanvas a')
+
+  links.forEach(link => {
+    
+    link.addEventListener('click', (e) => {
+      console.log(link.parentElement)
+
+      link.parentElement.classList.add('is_active')
+
+      // e.preventDefault()
+    })
+
+  });
+
+
+
 
   // gsap.utils.toArray(".movie-item").forEach(target => {
     gsap.config({

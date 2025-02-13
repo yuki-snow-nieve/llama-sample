@@ -67,3 +67,16 @@
   }
 }
 
+//swiper
+.swiper-wrapper {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: calc(-1 * var(--space-height));
+    width: 100%;
+    height: var(--space-height);
+  }
+}
