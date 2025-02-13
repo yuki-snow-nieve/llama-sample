@@ -154,6 +154,19 @@ a {
   }
 }
 
+.list-movies {
+  dl, dt, dd {
+    margin-left: 0;
+  }
+  dl {
+    margin-bottom: 8px;
+    dd {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+  }
+}
+
 .screensize {
   display: flex;
   align-items: center;
