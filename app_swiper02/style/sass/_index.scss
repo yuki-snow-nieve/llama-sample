@@ -1,0 +1,115 @@
+@use "sass:math";
+@use "./settings.scss";
+
+.page-index {
+
+  .box-feature {
+    // height: 200px !important;
+  }
+
+  .section-movies {
+  }
+
+  .list-wrapper {
+    height: calc(100vh - settings.$sizeH_globalHeader);
+  }
+
+  .movie-list {
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 0;
+
+    .movie-item {
+      display: inline-block;
+      // width: 56vw;
+      height: 123px;
+      margin-right: settings.$spacer-min;
+      font-size: 1.6rem;
+
+      a {
+        height: inherit;
+        display: block;
+      }
+
+      img {
+        height: inherit;
+      }
+    }
+  }
+
+  .list-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 2em * 1.4;
+    margin-bottom: settings.$spacer-min;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  .list-safix {
+    margin-top: settings.$spacer-min * 2;
+
+    a {
+      display: block;
+      text-align: center;
+      line-height: 1;
+    }
+  }
+
+  .swiper-wrapper {
+    transform: translateX(calc(0% - 0px)) !important;
+    margin-top: 30vh;
+  }
+
+  .swiper-slide {
+    transform-origin: 0 50%;
+
+    &:not(.swiper-slide-active) {
+      width: 1000vw;
+      opacity: 0.4 !important;
+      pointer-events: none;
+    }
+
+    &:not(.swiper-slide-fully-visible) {
+      opacity: 0 !important;
+    }
+
+    &.swiper-slide-prev-prev, &.swiper-slide-next-next {
+      opacity: 0.2 !important;
+    }
+
+    &.swiper-slide-prev {
+      // margin-bottom: 20px;
+    }
+
+    &.swiper-slide-next {
+      // margin-top: 20px;
+    }
+
+    &.swiper-slide-prev-prev {
+      margin-bottom: -40px;
+    }
+
+    &.swiper-slide-next-next {
+      margin-top: -40px;
+    }
+  }
+
+
+  //スタイリング
+  .box-feature.swiper-slide-active {
+    padding: settings.$spacer-min * 2 0;
+    background-color: rgba(settings.$theme-main-background, 0.4);
+  }
+
+  .swiper-slide {
+    &:not(.swiper-slide-active) {
+      .list-title, .list-safix {
+        visibility: hidden;
+      }
+    }
+  }
+
+}

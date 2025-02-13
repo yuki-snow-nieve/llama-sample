@@ -1,0 +1,80 @@
+@use "./settings.scss";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  background-color: settings.$theme-main-background;
+  color: settings.$theme-main-text;
+}
+
+.global-header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: settings.$layer-globalHeader;
+  height: settings.$sizeH_globalHeader;
+  background-color: rgba(settings.$theme-main-background, 0.66);
+  background: rgba(settings.$theme-main-background, 0.86);
+  font-weight: bold;
+  color: #999999;
+
+  + .main {
+    margin-top: settings.$sizeH_globalHeader;
+  }
+}
+
+.main {
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+}
+
+
+.button_solid {
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  height: 42px;
+  border-radius: 6px;
+  background-color: rgba(settings.$theme-main-text, 0.2);
+  line-height: 1;
+}
+
+.button_border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 1em;
+  border: 2px solid currentColor;
+  text-decoration: none;
+  color: inherit;
+}
+
+
+//swiper
+.swiper-wrapper {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: calc(-1 * var(--space-height));
+    width: 100%;
+    height: var(--space-height);
+  }
+}
