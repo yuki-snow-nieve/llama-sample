@@ -50,15 +50,23 @@ function homePage(){
   const globalHeaderHeight = globalHeader.offsetHeight;
 
   const listCanvas = document.getElementById('listCanvas');
-  const swiperItems = document.querySelectorAll('.swiper-slide');
-  let swiperItem = swiperItems[0];
+  const swiperItems_features = document.querySelectorAll('#features .swiper-slide');
+  let swiperItem_features = swiperItems_features[0];
 
-  let swiperItemH = swiperItem.querySelector('.list-title').offsetHeight + swiperItem.querySelector('.movie-list').offsetHeight + swiperItem.querySelector('.list-safix').offsetHeight;
+  let swiperItemH_feature = swiperItem_features.querySelector('.list-title').offsetHeight + swiperItem_features.querySelector('.movie-list').offsetHeight + swiperItem_features.querySelector('.list-safix').offsetHeight;
 
-  const swiper = new Swiper('.swiper', {
+  const swiper_pickup = new Swiper('#pickup', {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  })
+
+
+  const swiper_feature = new Swiper('#features', {
     direction: 'vertical',
     loop: false,
-    height: swiperItemH * (swiperItems.length - 1),
+    height: swiperItemH_feature * (swiperItems_features.length - 1),
     initialSlide: 0,
     slidesPerView: 5,
     centeredSlides: true,
@@ -70,13 +78,13 @@ function homePage(){
       perspective: true,
       prev: {
         // translate: [ 横, 縦, 奥行]
-        translate: [0, '-45%', '-60vw'],
+        translate: [0, '-90%', '-60vw'],
         rotate: [20, 0, 0],
         scale: 0.8,
         origin: '0% 0%'
       },
       next: {
-        translate: [0, '45%', '-60vw'],
+        translate: [0, '0%', '-60vw'],
         rotate: [-20, 0, 0],
         scale: 0.8,
         origin: '0% 100%'
@@ -85,8 +93,8 @@ function homePage(){
     on: {
       init: (e) => {
         setVisibleSlideClass(e.slides, e.activeIndex)
-        expandScrollableArea(swiperItemH, listCanvas);
-        e.wrapperEl.style.transform = `translate3d(0, ${swiperItemH + globalHeaderHeight}px, 0)`;
+        expandScrollableArea(swiperItemH_feature, listCanvas);
+        e.wrapperEl.style.transform = `translate3d(0, ${swiperItemH_feature + globalHeaderHeight}px, 0)`;
       },
       slideNextTransitionStart: (e) => {
         // deleteMovieInfo(e.slides[e.activeIndex - 1]);
