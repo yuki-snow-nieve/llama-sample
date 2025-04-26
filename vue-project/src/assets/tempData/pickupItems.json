@@ -1,0 +1,26 @@
+{
+  "feature_id": "pickup",
+  "title": "PICK UP",
+  "items": [
+    {
+      "item_id": "fsNqfoU7j3Y",
+      "title": "ミッキー17",
+      "movie": "https://youtu.be/embed/fsNqfoU7j3Y?si=7Tu1p_1fdsjN5xS-"
+    },
+    {
+      "item_id": "20cfbvsfMdc",
+      "title": "奇麗な、悪",
+      "movie": "https://youtu.be/embed/20cfbvsfMdc?si=r9t52jTq7-6SL_cC"
+    },
+    {
+      "item_id": "qp7lKSygkC8",
+      "title": "木の上の軍隊",
+      "movie": "https://youtu.be/embed/qp7lKSygkC8?si=v9CsjhlePuDhv7Nu"
+    },
+    {
+      "item_id": "4LIm9S_xVGQ",
+      "title": "国宝",
+      "movie": "https://youtu.be/4LIm9S_xVGQ?si=ZmlSMvBHoEbHfOc4"
+    }
+  ]
+}

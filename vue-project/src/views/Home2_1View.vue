@@ -1,6 +1,6 @@
 <script setup>
-import BoxFeature from '../components/home/BoxFeature.vue';
-import BoxPickup from '../components/home/BoxPickup.vue';
+import BoxFeature from '../components/home/BoxFeature2_1.vue';
+import BoxPickup from '../components/home/BoxPickupSwiper.vue';
 import pickupData from '@/assets/tempData/pickupItems.json';
 import itemsData from '@/assets/tempData/items.json';
 
@@ -17,15 +17,11 @@ const transition = (el) => {
   <main class="main page-index">
     <section id="listCanvas" class="section-movies">
       <transition name="t-list" :duration="550">
-        <div v-if="show" class="list-wrapper swiper">
+        <div v-if="show" class="list-wrapper">
           <div class="list-features">
             <BoxPickup
-              v-for="item in pickupData.items"
-              :key="item.item_id"
-              :id="item.item_id"
-              :title="item.title"
-              :feature_id="pickupData.feature_id"
-              class="movie-item"
+              :id="pickupData.feature_id"
+              :items="pickupData.items"
             />
             <BoxFeature
               v-for="feature in itemsData"
@@ -44,13 +40,5 @@ const transition = (el) => {
 </template>
 
 <style>
-.t-list-enter-active,
-.t-list-leave-active {
-  transition: opacity 0.5s ease;
-}
 
-.t-list-enter-from,
-.t-list-leave-to {
-  opacity: 0;
-}
 </style>
