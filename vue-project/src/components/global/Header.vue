@@ -10,7 +10,10 @@ const count = ref(0);
 
 <template>
   <header class="global-header">
-    <h1>global header</h1>
+    <h1 class="logo">
+      <img src="@/assets/brand/logo_llama.svg" alt="トレラマ" class="logo-llama" />
+      <img src="@/assets/brand/logo_text.svg" alt="トレーラーマニア" class="logo-text" />
+    </h1>
     <div>
       <button>Join Us!</button>
     </div>
@@ -35,8 +38,24 @@ const count = ref(0);
   font-weight: bold;
   color: #999999;
 
-  + .main {
-    margin-top: settings.$sizeH_globalHeader;
+  // + .main {
+  //   margin-top: settings.$sizeH_globalHeader;
+  // }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: inherit;
+  padding: 2px 4px;
+
+  .logo-llama, .logo-text {
+    height: inherit;
+  }
+
+  .logo-text {
+    height: 60%;
   }
 }
 </style>
