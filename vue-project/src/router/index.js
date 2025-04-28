@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import Home2_1View from '../views/Home2_1View.vue';
 import Home2_2View from '../views/Home2_2View.vue';
+import Home2_3View from '../views/Home2_3View.vue';
 import PlayerView from '../views/PlayerView.vue';
 import PlayerItemView from '../views/PlayerItemView.vue';
 
@@ -23,6 +24,11 @@ const router = createRouter({
       path: '/home2_2',
       name: 'home2_2',
       component: Home2_2View,
+    },
+    {
+      path: '/home2_3',
+      name: 'home2_3',
+      component: Home2_3View,
     },
     {
       path: '/about',

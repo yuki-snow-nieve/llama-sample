@@ -17,7 +17,22 @@ const thumbItem = computed(() => {
 })
 
 const listItems = computed(() => {
-  return props.items.filter( item => !item.mainthumb )
+  let list = [];
+  let count = 2;
+  if (props.items.length > 4) {
+    count = 5
+  }
+  for ( let i = 0; i < props.items.length; i++ ) {
+    let item = props.items[i];
+    if ( !item.mainthumb ) {
+      list.push(item)
+    }
+    if ( list.length >= count ) {
+      break;
+    }
+    
+  }
+  return list;
 })
 
 </script>
@@ -54,15 +69,15 @@ const listItems = computed(() => {
           />
         </RouterLink>
       </li>
+      <li class="list-safix movie-item">
+        <RouterLink
+          to="/player/${id}/${thumbItem.item_id}"
+          class="link-more"
+        >
+          もっと見る
+        </RouterLink>
+      </li>
     </ul>
-    <footer class="feature-footer">
-      <RouterLink
-        to="/player/${id}/${thumbItem.item_id}"
-        class="link-more"
-      >
-        もっと見る
-      </RouterLink>
-    </footer>
   </section>
 </template>
 
@@ -74,13 +89,13 @@ $space-block-side: settings.$spacer-min * 4;
 
 .box-feature {
   margin: settings.$spacer-min * 10 $space-block-side;
+  padding-block: settings.$spacer-min * 6;
   background-color: rgba(white, 0.1);
 }
 
 .feature-header {
   display: flex;
   gap: settings.$spacer-min * 2;
-  padding-top: settings.$spacer-min * 6;
   padding-inline: settings.$spacer-min * 2;
   padding-bottom: settings.$spacer-min * 4;
 
@@ -99,17 +114,15 @@ $space-block-side: settings.$spacer-min * 4;
 }
 
 
-
 .movie-list {
-  margin-inline: -1 * $space-block-side;
-  overflow-x: auto;
-  white-space: nowrap;
-  font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: settings.$spacer-min;
+  padding-inline: settings.$spacer-min;
 
   .movie-item {
-    display: inline-block;
-    width: 38vw;
-    margin-right: settings.$spacer-min;
+    width: calc(math.div(100%, 3) - settings.$spacer-min * 2/3);
     font-size: 1.6rem;
     contain: paint;
 
@@ -122,12 +135,15 @@ $space-block-side: settings.$spacer-min * 4;
       height: inherit;
     }
   }
-}
 
-.feature-footer {
-  padding-block: settings.$spacer-min * 4;
-  padding-inline: settings.$spacer-min * 2;
-  text-align: right;
+  .list-safix {
+    .link-more {
+      align-items: center;
+      height: 100%;
+      justify-content: center;
+      display: flex;
+    }
+  }
 }
 
 </style>
