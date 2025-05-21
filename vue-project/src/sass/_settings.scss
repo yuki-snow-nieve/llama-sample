@@ -10,3 +10,15 @@ $layer-detail: 10;
 $sizeH_globalHeader: 44px;
 
 $spacer-min: 8px;
+
+$font-size-s: 1.2rem;
+$font-size-n: 1.6rem;
+$font-size-l: 2.2rem;
+
+@mixin lettring_movieTitle {
+  font-size: $font-size-l;
+  line-height: 1.4;
+  font-weight: bold;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}

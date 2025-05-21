@@ -20,7 +20,7 @@ const transition = (el) => {
         <div v-if="show" class="list-wrapper">
           <div class="list-features">
             <BoxPickup
-              :id="pickupData.feature_id"
+              :feature_id="pickupData.feature_id"
               :items="pickupData.items"
             />
             <BoxFeature

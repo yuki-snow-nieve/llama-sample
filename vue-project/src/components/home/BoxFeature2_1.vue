@@ -71,7 +71,7 @@ const listItems = computed(() => {
       </li>
       <li class="list-safix movie-item">
         <RouterLink
-          to="/player/${id}/${thumbItem.item_id}"
+          :to="`/player/${id}/${thumbItem.item_id}`"
           class="link-more"
         >
           もっと見る

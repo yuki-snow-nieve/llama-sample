@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue';
 import Home2_1View from '../views/Home2_1View.vue';
 import Home2_2View from '../views/Home2_2View.vue';
 import Home2_3View from '../views/Home2_3View.vue';
-import PlayerView from '../views/PlayerView.vue';
+import PlayerView from '../views/PlayerView_swiper.vue';
 import PlayerItemView from '../views/PlayerItemView.vue';
 
 const router = createRouter({
@@ -40,8 +40,13 @@ const router = createRouter({
     },
     {
       path: '/player/:feature_id/:item_id',
+      name: 'player',
       component: PlayerView,
-      children: [{ path: '/detail', component: PlayerItemView }],
+      children: [{
+        path: 'detail',
+        name: 'itemDetail',
+        component: PlayerItemView
+      }],
     },
   ],
 });

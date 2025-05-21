@@ -32,7 +32,7 @@ defineProps({
       </li>
     </ul>
     <div class="list-safix">
-      <RouterLink to="/player/${id}/${items[0].item_id}">もっと見る</RouterLink>
+      <RouterLink :to="`/player/${id}/${items[0].item_id}`">もっと見る</RouterLink>
     </div>
   </section>
 </template>

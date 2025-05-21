@@ -6,7 +6,7 @@ import "swiper/css";
 // import "swiper/css/pagination";
 
 defineProps({
-  id: String,
+  feature_id: String,
   items: {
     item_id: String,
     title: String,
@@ -46,7 +46,7 @@ const onSlideChange = () => {
         :key="item.item_id"
       >
         <RouterLink
-          :to="`/player/${id}/${item.item_id}`"
+          :to="`/player/${feature_id}/${item.item_id}`"
           @click="$emit('itemClicked', $el.querySelector('.movie-list'))"
         >
           <dl class="movie-item">

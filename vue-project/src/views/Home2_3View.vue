@@ -25,6 +25,7 @@ const transition = (el) => {
               :id="item.item_id"
               :title="item.title"
               :items="item.items"
+              :feature_id="pickupData.feature_id"
             />
             <BoxFeature
               v-for="feature in itemsData"

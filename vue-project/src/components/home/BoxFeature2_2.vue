@@ -57,7 +57,7 @@ const listItems = computed(() => {
     </ul>
     <footer class="feature-footer">
       <RouterLink
-        to="/player/${id}/${thumbItem.item_id}"
+        :to="`/player/${id}/${thumbItem.item_id}`"
         class="link-more"
       >
         もっと見る
