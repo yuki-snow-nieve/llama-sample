@@ -167,12 +167,13 @@ const onSlideChangeTransitionEnd = () => {
 @use '@/sass/settings.scss';
 
 .section-movies {
+  position: relative;
   width: 100%;
 }
 
 .list-title {
   position: absolute;
-  top: settings.$sizeH_globalHeader + 24px;
+  top: settings.$sizeH_globalHeader;
   z-index: 10;
   width: 100%;
   margin: 0;
@@ -286,7 +287,7 @@ const onSlideChangeTransitionEnd = () => {
 .movie-info {
   $activeContentHeight: 100cqw * 9/16;
   --height: calc(50cqh + #{math.div($activeContentHeight, 4)});
-  position: fixed;
+  position: absolute;
   top: var(--height);
   z-index: settings.$layer-detail;
   width: 100%;

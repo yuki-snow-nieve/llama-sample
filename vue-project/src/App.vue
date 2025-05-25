@@ -12,5 +12,12 @@ import GlobalHeader from './components/global/Header.vue';
   </RouterView>
 </template>
 
-<style scoped>
+<style lang="scss">
+@use 'sass:math';
+@use '@/sass/settings.scss';
+
+#app > .main {
+  width: 100%;
+  max-width: math.div(100vh * 9, 16);
+}
 </style>
