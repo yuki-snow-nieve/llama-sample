@@ -1,7 +1,7 @@
 <script setup>
 import buttonsReactions from '@/components/player/ItemReactions.vue';
 
-const item = defineProps({
+defineProps({
   feature_id: String,
   item_id: String,
   title: String
@@ -11,11 +11,11 @@ const item = defineProps({
 
 <template>
   <div class="movie-info">
-    <h1 class="movie-title">{{item.title}}</h1>
+    <h1 class="movie-title">{{title}}</h1>
     <buttonsReactions />
     <div class="box-buttons">
       <RouterLink
-        :to="{ name: 'itemDetail', params: { feature_id: item.feature_id, item_id: item.item_id }}"
+        :to="{ name: 'itemDetail', params: { feature_id: feature_id, item_id: item_id }}"
         class="button button_outline"
       >
         詳細を見る

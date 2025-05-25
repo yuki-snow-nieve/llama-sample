@@ -1,18 +1,19 @@
 <script setup>
-import { useRoute } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
+const router = useRouter();
 const route = useRoute();
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, useTemplateRef } from 'vue';
 
-import ItemInfo from '../components/player/ItemInfo.vue';
+import ItemInfo from '@/components/player/ItemInfo.vue';
 
 import pickupData from '@/assets/tempData/pickupItems.json';
 import itemsData from '@/assets/tempData/items.json';
 
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { EffectCreative } from 'swiper/modules';
+import { EffectCreative, History } from 'swiper/modules';
 const swiperModules = [EffectCreative];
 
-const isShowInfo = ref(false)
+const isShowInfo = ref(true)
 
 //dataの取得
 const list = ((params_id) => {
@@ -27,16 +28,14 @@ const initial_item_index = ((params_id) => {
 	return list.items.findIndex( ({item_id}) => item_id === params_id);
 })(route.params.item_id);
 
-const active_index = ref(initial_item_index)
-
-const active_item = computed(()  => {
-  console.log( list.items[active_index.value])
-  return list.items[active_index.value];
-});
-
-//ページ遷移
-const closeDetail = (() => {
-  console.log('closeItemComponent')
+const active_item = ref(list.items[initial_item_index]);
+const active_index = computed({
+  get() {
+    return initial_item_index
+  },
+  set(newValue) {
+    active_item.value = list.items[newValue];
+  }
 })
 
 //UIの設定
@@ -49,22 +48,30 @@ const setVisibleSlideClass = (slides, activeIndex) => {
   // }
 }
 
+////Swiper設定
+const boxSwiper = useTemplateRef('sectionPlayer');
+const swiperHeight = ref(0);
+onMounted(() => {
+  const itemH = boxSwiper.value.offsetWidth * 9 / 16;
+  swiperHeight.value = itemH * 3;
+})
+
+
+const onSlideChange = (swiper) => {
+  active_index.value = swiper.activeIndex;
+  router.push({ name: 'player', params: { feature_id: route.params.feature_id, item_id: active_item.value.item_id }})
+};
 
 const onSlideNextTransitionStart = (e) => {
   console.log('slideNextTransitionStart');
-  // deleteMovieInfo(e.slides[e.activeIndex - 1]);
-  // deletePlayerItem(e.slides[e.activeIndex - 1]);
 }
 
 const onSlidePrevTransitionStart = (e) => {
   console.log('slidePrevTransitionStart');
-  // deleteMovieInfo(e.slides[e.activeIndex + 1]);
-  // deletePlayerItem(e.slides[e.activeIndex + 1]);
 }
 
 const onSlideChangeTransitionStart = (e) => {
-  console.log('slideChangeTransitionStart');
-  hideMovieInfo();
+  isShowInfo.value = false;
   // e.slides.forEach(slide => {
   //   if (slide.classList.contains('swiper-slide-prev-prev')) {
   //     slide.classList.remove('swiper-slide-prev-prev')
@@ -76,46 +83,20 @@ const onSlideChangeTransitionStart = (e) => {
   // setVisibleSlideClass(e.slides, e.activeIndex)
 }
 
-const onSlideChangeTransitionEnd = (swiper) => {
-  console.log('slideChangeTransitionEnd');
-  active_index.value = swiper.activeIndex;
-  showMovieInfo();
-  // startAutoPlay(e.slides[e.activeIndex]);
-}
-
-const onSlideChange = () => {
-  console.log('slide change');
-};
-
-const showMovieInfo = () => {
-  console.log('showMovieInfo')
+const onSlideChangeTransitionEnd = () => {
   isShowInfo.value = true
-  console.log('isShowInfo: ' + isShowInfo.value)
 }
 
-const hideMovieInfo = () => {
-  console.log('deleteMovieInfo')
-  isShowInfo.value = false
-  console.log('isShowInfo: ' + isShowInfo.value)
-}
-
-const startAutoPlay = () => {
-  console.log('startAutoPlay')
-}
-
-const deletePlayerItem = () => {
-  console.log('deletePlayerItem')
-}
 </script>
 
 <template>
   <main class="main page-player">
-    <section class="section-movies">
-      <h2 class="list-title">{{ list.title }}</h2>
+    <section ref="sectionPlayer" class="section-movies">
+      <h2 class="list-title" id="swiperBox">{{ list.title }}</h2>
       <swiper
         class="movie-list"
         :direction="'vertical'"
-        :height=708
+        :height="swiperHeight"
         :loop=false
         :initialSlide=initial_item_index
         :slidesPerView=3
@@ -146,24 +127,38 @@ const deletePlayerItem = () => {
         @slideChangeTransitionEnd="onSlideChangeTransitionEnd"
       >
         <swiper-slide
-          v-for="item in list.items"
+          v-for="(item, i) in list.items"
           class="movie-item"
+          :key="i"
         >
           <img
             :src="`https://img.youtube.com/vi/${item.item_id}/maxresdefault.jpg`"
             :alt="item.title"
           />
+          <iframe
+            v-if="i === active_index"
+            width="100%"
+            height="100%"
+            :src="`${item.movie}&autoplay=1&mute=1`"
+            :title="item.title"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            :allowfullscreen="true"
+          >
+          </iframe>
         </swiper-slide>
       </swiper>
+      {{ active_item.title }}/{{ isShowInfo }}
       <ItemInfo
-        v-if="isShowInfo"
+        v-show="isShowInfo"
         :feature_id="route.params.feature_id"
         :item_id="active_item.item_id"
         :title="active_item.title"
       />
     </section>
 
-    <router-view @clickedCloseSelf="closeDetail"></router-view>
+    <router-view></router-view>
   </main>
 </template>
 
@@ -224,6 +219,7 @@ const deletePlayerItem = () => {
     }
 
     &.swiper-slide-active {
+      opacity: 1 !important;
     }
 
     &.swiper-slide-prev {
@@ -261,6 +257,18 @@ const deletePlayerItem = () => {
       left: 0;
       right: 0;
       z-index: 2;
+      opacity: 0;
+      animation: opacity 300ms ease 1000ms forwards;
+    }
+
+    
+    @keyframes opacity {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
 
     .movie-item-header {

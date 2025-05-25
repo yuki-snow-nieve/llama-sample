@@ -7,10 +7,7 @@ import { useRouter, useRoute } from 'vue-router';
 const router = useRouter();
 const route = useRoute();
 
-const emit = defineEmits(['clickedCloseSelf']); //emit以外でもok
-
 const clickedCloseButton = (() => {
-  // router.back();
   router.push({ name: 'itemDetail', params: { feature_id: route.params.feature_id, item_id: route.params.item_id }})
 })
 
