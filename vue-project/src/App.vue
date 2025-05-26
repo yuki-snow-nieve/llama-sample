@@ -16,8 +16,12 @@ import GlobalHeader from './components/global/Header.vue';
 @use 'sass:math';
 @use '@/sass/settings.scss';
 
+#app {
+  --width-max-main-conteiner: #{math.div(100vh * 9, 16)}; //56.25vh
+}
+
 #app > .main {
   width: 100%;
-  max-width: math.div(100vh * 9, 16);
+  max-width: var(--width-max-main-conteiner);
 }
 </style>

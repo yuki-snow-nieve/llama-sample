@@ -52,23 +52,23 @@ const setVisibleSlideClass = (slides, activeIndex) => {
 const boxSwiper = useTemplateRef('sectionPlayer');
 const swiperHeight = ref(0);
 onMounted(() => {
+  console.log(boxSwiper.value.offsetWidth)
   const itemH = boxSwiper.value.offsetWidth * 9 / 16;
   swiperHeight.value = itemH * 3;
 })
-
 
 const onSlideChange = (swiper) => {
   active_index.value = swiper.activeIndex;
   router.push({ name: 'player', params: { feature_id: route.params.feature_id, item_id: active_item.value.item_id }})
 };
 
-const onSlideNextTransitionStart = (e) => {
-  console.log('slideNextTransitionStart');
-}
+// const onSlideNextTransitionStart = (e) => {
+//   console.log('slideNextTransitionStart');
+// }
 
-const onSlidePrevTransitionStart = (e) => {
-  console.log('slidePrevTransitionStart');
-}
+// const onSlidePrevTransitionStart = (e) => {
+//   console.log('slidePrevTransitionStart');
+// }
 
 const onSlideChangeTransitionStart = (e) => {
   isShowInfo.value = false;
@@ -122,8 +122,6 @@ const onSlideChangeTransitionEnd = () => {
         }"
         @slideChange="onSlideChange"
         @slideChangeTransitionStart="onSlideChangeTransitionStart"
-        @slideNextTransitionStart="onSlideNextTransitionStart"
-        @slidePrevTransitionStart="onSlidePrevTransitionStart"
         @slideChangeTransitionEnd="onSlideChangeTransitionEnd"
       >
         <swiper-slide
@@ -149,7 +147,6 @@ const onSlideChangeTransitionEnd = () => {
           </iframe>
         </swiper-slide>
       </swiper>
-      {{ active_item.title }}/{{ isShowInfo }}
       <ItemInfo
         v-show="isShowInfo"
         :feature_id="route.params.feature_id"
@@ -191,7 +188,7 @@ const onSlideChangeTransitionEnd = () => {
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: var(--width-max-main-conteiner);
 }
 
 .swiper:deep {
