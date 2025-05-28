@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  id: String,
+  item_id: String,
   title: String,
   movie: String,
   feature_id: String,
@@ -9,14 +9,15 @@ defineProps({
 
 <template>
   <div class="box-pickup">
-    <RouterLink :to="`/player/${feature_id}/${id}`">
+    <RouterLink :to="`/player/${feature_id}/${item_id}`">
       <div class="pickup-header">PICK UP</div>
       <dl class="item pickup-body">
         <dt class="item-title">{{ title }}</dt>
         <dd class="item-image">
           <img
-            :src="`https://img.youtube.com/vi/${id}/maxresdefault.jpg`"
+            :src="`https://img.youtube.com/vi/${item_id}/maxresdefault.jpg`"
             :alt="title"
+            :view-transition-name="item_id"
           />
         </dd>
       </dl>

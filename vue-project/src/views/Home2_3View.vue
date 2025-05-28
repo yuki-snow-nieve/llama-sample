@@ -22,7 +22,7 @@ const transition = (el) => {
             <BoxPickup
               v-for="item in pickupData.items"
               :key="item.item_id"
-              :id="item.item_id"
+              :item_id="item.item_id"
               :title="item.title"
               :items="item.items"
               :feature_id="pickupData.feature_id"

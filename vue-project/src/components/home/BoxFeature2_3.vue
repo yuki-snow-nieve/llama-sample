@@ -49,6 +49,7 @@ const listItems = computed(() => {
           <img
             :src="`https://img.youtube.com/vi/${thumbItem.item_id}/maxresdefault.jpg`"
             :alt="thumbItem.title"
+            :view-transition-name="thumbItem.item_id"
           />
         </RouterLink>
       </div>
@@ -66,6 +67,7 @@ const listItems = computed(() => {
           <img
             :src="`https://img.youtube.com/vi/${item.item_id}/maxresdefault.jpg`"
             :alt="item.title"
+            :view-transition-name="item.item_id"
           />
         </RouterLink>
       </li>

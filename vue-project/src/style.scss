@@ -2,7 +2,12 @@
 @use './sass/_settings.scss';
 @use './sass/_global.scss';
 
-@use './sass/_button.scss'
+@use './sass/_button.scss';
+
+@view-transition {
+  navigation: auto;
+}
+
 
 // a {
 //   font-weight: 500;

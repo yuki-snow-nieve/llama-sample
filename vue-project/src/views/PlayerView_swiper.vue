@@ -52,7 +52,6 @@ const setVisibleSlideClass = (slides, activeIndex) => {
 const boxSwiper = useTemplateRef('sectionPlayer');
 const swiperHeight = ref(0);
 onMounted(() => {
-  console.log(boxSwiper.value.offsetWidth)
   const itemH = boxSwiper.value.offsetWidth * 9 / 16;
   swiperHeight.value = itemH * 3;
 })
@@ -146,6 +145,11 @@ const onSlideChangeTransitionEnd = () => {
           >
           </iframe>
         </swiper-slide>
+        <swiper-slide
+          v-for="i in 2"
+          class="movie-item is_empty"
+        >
+        </swiper-slide>
       </swiper>
       <ItemInfo
         v-show="isShowInfo"
@@ -188,7 +192,8 @@ const onSlideChangeTransitionEnd = () => {
   top: 0;
   bottom: 0;
   left: 0;
-  width: var(--width-max-main-conteiner);
+  width: 100%;
+  max-width: var(--width-max-main-conteiner);
 }
 
 .swiper:deep {
