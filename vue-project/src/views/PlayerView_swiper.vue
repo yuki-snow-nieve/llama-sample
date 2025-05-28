@@ -131,6 +131,7 @@ const onSlideChangeTransitionEnd = () => {
           <img
             :src="`https://img.youtube.com/vi/${item.item_id}/maxresdefault.jpg`"
             :alt="item.title"
+            :view-transition-name="item.item_id"
           />
           <iframe
             v-if="i === active_index"

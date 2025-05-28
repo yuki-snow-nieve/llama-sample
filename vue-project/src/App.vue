@@ -8,7 +8,7 @@ import GlobalHeader from './components/global/Header.vue';
 <template>
   <GlobalHeader />
   <RouterView v-slot="{ Component }">
-    <component :is="Component" :key="$route.path" @itemClicked="transition" />
+    <component :is="Component" :key="$route.path" />
   </RouterView>
 </template>
 

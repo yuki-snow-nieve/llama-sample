@@ -4,41 +4,34 @@ import BoxPickup from '../components/home/BoxPickup2_3.vue';
 import pickupData from '@/assets/tempData/pickupItems.json';
 import itemsData from '@/assets/tempData/items.json';
 
-let show = true;
-
-const emit = defineEmits(['itemClicked']);
-
-const transition = (el) => {
-  emit('itemClicked', 'hometoplay', el);
-};
+document.startViewTransition(() => {
+  console.log('startViewTransition');
+});
 </script>
 
 <template>
   <main class="main page-index">
     <section id="listCanvas" class="section-movies">
-      <transition name="t-list" :duration="550">
-        <div v-if="show" class="list-wrapper">
-          <div class="list-features">
-            <BoxPickup
-              v-for="item in pickupData.items"
-              :key="item.item_id"
-              :item_id="item.item_id"
-              :title="item.title"
-              :items="item.items"
-              :feature_id="pickupData.feature_id"
-            />
-            <BoxFeature
-              v-for="feature in itemsData"
-              :key="feature.feature_id"
-              :id="feature.feature_id"
-              :title="feature.title"
-              :items="feature.items"
-              class=""
-              @itemClicked="transition"
-            />
-          </div>
+      <div class="list-wrapper">
+        <div class="list-features">
+          <BoxPickup
+            v-for="item in pickupData.items"
+            :key="item.item_id"
+            :item_id="item.item_id"
+            :title="item.title"
+            :items="item.items"
+            :feature_id="pickupData.feature_id"
+          />
+          <BoxFeature
+            v-for="feature in itemsData"
+            :key="feature.feature_id"
+            :id="feature.feature_id"
+            :title="feature.title"
+            :items="feature.items"
+            class=""
+          />
         </div>
-      </transition>
+      </div>
     </section>
   </main>
 </template>
