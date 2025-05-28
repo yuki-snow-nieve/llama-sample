@@ -6,6 +6,9 @@ import Home2_3View from '../views/Home2_3View.vue';
 import PlayerView from '../views/PlayerView_swiper.vue';
 import PlayerItemView from '../views/PlayerItemView.vue';
 
+import Home2_3View_transition from '../views/Home2_3View_Transition.vue';
+import PlayerViewTransition from '../views/PlayerView_swiper_transition.vue';
+
 const router = createRouter({
   mode: 'history',
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,6 +34,11 @@ const router = createRouter({
       component: Home2_3View,
     },
     {
+      path: '/home2_3_transition',
+      name: 'home2_3_transition',
+      component: Home2_3View_transition,
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -48,7 +56,16 @@ const router = createRouter({
         component: PlayerItemView
       }],
     },
-  ],
+    {
+      path: '/player_transition/:feature_id/:item_id',
+      name: 'player_transition',
+      component: PlayerViewTransition,
+      children: [{
+        path: 'detail',
+        name: 'itemDetail',
+        component: PlayerItemView
+      }],
+    },  ],
 });
 
 export default router;

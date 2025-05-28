@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div class="box-pickup">
-    <RouterLink :to="`/player/${feature_id}/${item_id}`">
+    <RouterLink :to="`/player_transition/${feature_id}/${item_id}`">
       <div class="pickup-header">PICK UP</div>
       <dl class="item pickup-body">
         <dt class="item-title">{{ title }}</dt>

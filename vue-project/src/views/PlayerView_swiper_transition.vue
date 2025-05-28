@@ -86,6 +86,11 @@ const onSlideChangeTransitionEnd = () => {
   isShowInfo.value = true
 }
 
+
+// transitionの設定
+document.startViewTransition(() => {
+  console.log('startViewTransition');
+});
 </script>
 
 <template>

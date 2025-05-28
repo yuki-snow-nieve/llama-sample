@@ -4,11 +4,12 @@
 
 @use './sass/_button.scss';
 
-@view-transition {
-  navigation: auto;
-  types: fade;
+:root {
+  @view-transition {
+    navigation: auto;
+    types: fade;
+  }  
 }
-
 
 // a {
 //   font-weight: 500;

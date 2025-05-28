@@ -1,9 +1,12 @@
 <script setup>
-import BoxFeature from '../components/home/BoxFeature2_3.vue';
-import BoxPickup from '../components/home/BoxPickup2_3.vue';
+import BoxFeature from '../components/home/BoxFeature2_3_transition.vue';
+import BoxPickup from '../components/home/BoxPickup2_3_transition.vue';
 import pickupData from '@/assets/tempData/pickupItems.json';
 import itemsData from '@/assets/tempData/items.json';
 
+document.startViewTransition(() => {
+  console.log('startViewTransition');
+});
 </script>
 
 <template>
