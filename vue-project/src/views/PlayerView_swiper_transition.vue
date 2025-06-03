@@ -39,14 +39,6 @@ const active_index = computed({
 })
 
 //UIの設定
-const setVisibleSlideClass = (slides, activeIndex) => {
-  // if (slides[activeIndex - 2]) {
-  //   slides[activeIndex - 2].classList.add('swiper-slide-prev-prev')
-  // }
-  // if (slides[activeIndex + 2]) {
-  //   slides[activeIndex + 2].classList.add('swiper-slide-next-next')
-  // }
-}
 
 ////Swiper設定
 const boxSwiper = useTemplateRef('sectionPlayer');
@@ -61,42 +53,21 @@ const onSlideChange = (swiper) => {
   router.push({ name: 'player', params: { feature_id: route.params.feature_id, item_id: active_item.value.item_id }})
 };
 
-// const onSlideNextTransitionStart = (e) => {
-//   console.log('slideNextTransitionStart');
-// }
-
-// const onSlidePrevTransitionStart = (e) => {
-//   console.log('slidePrevTransitionStart');
-// }
 
 const onSlideChangeTransitionStart = (e) => {
   isShowInfo.value = false;
-  // e.slides.forEach(slide => {
-  //   if (slide.classList.contains('swiper-slide-prev-prev')) {
-  //     slide.classList.remove('swiper-slide-prev-prev')
-  //   }
-  //   if (slide.classList.contains('swiper-slide-next-next')) {
-  //     slide.classList.remove('swiper-slide-next-next')
-  //   }
-  // })
-  // setVisibleSlideClass(e.slides, e.activeIndex)
 }
 
 const onSlideChangeTransitionEnd = () => {
   isShowInfo.value = true
 }
 
-
-// transitionの設定
-document.startViewTransition(() => {
-  console.log('startViewTransition');
-});
 </script>
 
 <template>
   <main class="main page-player">
     <section ref="sectionPlayer" class="section-movies">
-      <h2 class="list-title" id="swiperBox">{{ list.title }}</h2>
+      <h2 class="list-title" id="swiperBox">transition / {{ list.title }}</h2>
       <swiper
         class="movie-list"
         :direction="'vertical'"
@@ -127,6 +98,7 @@ document.startViewTransition(() => {
         @slideChange="onSlideChange"
         @slideChangeTransitionStart="onSlideChangeTransitionStart"
         @slideChangeTransitionEnd="onSlideChangeTransitionEnd"
+        :view-transition-name="`listBox_${route.params.feature_id}`"
       >
         <swiper-slide
           v-for="(item, i) in list.items"
@@ -138,11 +110,13 @@ document.startViewTransition(() => {
             :alt="item.title"
             :view-transition-name="item.item_id"
           />
+
+          <!-- iframeいったん非表示  v-if="i === active_index"-->
           <iframe
-            v-if="i === active_index"
+            v-if="i === 10000"
             width="100%"
             height="100%"
-            :src="`${item.movie}&autoplay=1&mute=1`"
+            :src="`${item.movie}&autoplay=1&mute=1&controls=0`"
             :title="item.title"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -301,4 +275,5 @@ document.startViewTransition(() => {
   z-index: settings.$layer-detail;
   width: 100%;
 }
+
 </style>

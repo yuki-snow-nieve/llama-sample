@@ -4,12 +4,58 @@
 
 @use './sass/_button.scss';
 
-:root {
-  @view-transition {
-    navigation: auto;
-    types: fade;
-  }  
+.main {
+  // @view-transition {
+  //   navigation: auto;
+  // }  
 }
+
+img {
+  contain: paint;
+}
+
+
+@view-transition {
+  navigation: auto;
+}
+
+
+@keyframes move-out {
+  from {
+    opacity: 1;
+    transform: translateX(0%) scale(10);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-100%) scale(5);
+  }
+}
+
+@keyframes move-in {
+  from {
+    opacity: 1;
+    transform: translateX(100%) scale(5);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0%) scale(10);
+  }
+}
+
+
+::view-transition-group(fsNqfoU7j3Y) {
+  display: block;
+}
+::view-transition-old(fsNqfoU7j3Y) {
+  animation: 1s ease-in both move-out;
+}
+
+::view-transition-new(fsNqfoU7j3Y) {
+  animation: 1s ease-in both move-in;
+}
+
 
 // a {
 //   font-weight: 500;

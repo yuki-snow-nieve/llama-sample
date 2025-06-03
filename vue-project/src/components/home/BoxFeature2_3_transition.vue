@@ -134,7 +134,9 @@ $space-block-side: settings.$spacer-min * 4;
     }
 
     img {
+      position: relative;
       height: inherit;
+      contain: paint;
     }
   }
 

@@ -68,4 +68,8 @@ const router = createRouter({
     },  ],
 });
 
+// router.beforeEach((to, from, next) => {
+//   document.startViewTransition(() => next());
+// });
+
 export default router;

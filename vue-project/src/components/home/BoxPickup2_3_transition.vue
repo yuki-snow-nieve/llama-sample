@@ -5,12 +5,24 @@ defineProps({
   movie: String,
   feature_id: String,
 });
+
+const emit = defineEmits(['linkClicked']);
+
+const linkClicked = (el) => {
+  console.log(el.querySelector('img'))
+  const img = el.querySelector('img');
+  emit('linkClicked', 'box-pickup', {'x': img.getBoundingClientRect().x, 'y': img.getBoundingClientRect().y});
+};
+
 </script>
 
 <template>
   <div class="box-pickup">
-    <RouterLink :to="`/player_transition/${feature_id}/${item_id}`">
-      <div class="pickup-header">PICK UP</div>
+    <RouterLink
+      :to="{name: 'player_transition', params: {'feature_id': feature_id,'item_id': item_id }}"
+      @click="linkClicked($el)"
+    >
+      <div class="pickup-header">tr / PICK UP</div>
       <dl class="item pickup-body">
         <dt class="item-title">{{ title }}</dt>
         <dd class="item-image">
@@ -18,6 +30,7 @@ defineProps({
             :src="`https://img.youtube.com/vi/${item_id}/maxresdefault.jpg`"
             :alt="title"
             :view-transition-name="item_id"
+            :data-item-id="item_id"
           />
         </dd>
       </dl>
@@ -72,7 +85,6 @@ $space-block-side: settings.$spacer-min * 4;
   .item-image {
     order: 1;
     margin-inline: -1 * $space-block-side;
-    contain: paint;
   }
 }
 
