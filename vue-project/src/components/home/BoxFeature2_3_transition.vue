@@ -35,13 +35,6 @@ const listItems = computed(() => {
   return list;
 })
 
-const emit = defineEmits(['linkClicked']);
-
-const linkClicked = (el) => {
-  const img = el.querySelector('img');
-  emit('linkClicked', {'x': img.getBoundingClientRect().x, 'y': img.getBoundingClientRect().y});
-};
-
 </script>
 
 <template>
@@ -51,13 +44,14 @@ const linkClicked = (el) => {
       <div class="movie-item">
         <RouterLink
           :to="`/player_transition/${id}/${thumbItem.item_id}`"
-          @click="linkClicked($el)"
         >
-          <img
-            :src="`https://img.youtube.com/vi/${thumbItem.item_id}/maxresdefault.jpg`"
-            :alt="thumbItem.title"
-            :view-transition-name="thumbItem.item_id"
-          />
+          <div class="item-image">
+            <img
+              :src="`https://img.youtube.com/vi/${thumbItem.item_id}/maxresdefault.jpg`"
+              :alt="thumbItem.title"
+              :item-id="thumbItem.item_id"
+            />            
+          </div>
         </RouterLink>
       </div>
     </header>
@@ -65,20 +59,20 @@ const linkClicked = (el) => {
       <li
         v-for="item in listItems"
         class="movie-item"
-        :style="`view-transition-name: ${item.item_id}`"
       >
         <RouterLink
           :to="`/player_transition/${id}/${item.item_id}`"
-          @click="$emit('itemClicked', $el.querySelector('.movie-list'))"
         >
-          <img
-            :src="`https://img.youtube.com/vi/${item.item_id}/maxresdefault.jpg`"
-            :alt="item.title"
-            :view-transition-name="item.item_id"
-          />
+          <div class="item-image">
+            <img
+              :src="`https://img.youtube.com/vi/${item.item_id}/maxresdefault.jpg`"
+              :alt="item.title"
+              :item-id="item.item_id"
+            />
+          </div>
         </RouterLink>
       </li>
-      <li class="list-safix movie-item">
+      <li class="list-safix">
         <RouterLink
           :to="`/player_transition/${id}/${thumbItem.item_id}`"
           class="link-more"
@@ -132,7 +126,6 @@ $space-block-side: settings.$spacer-min * 4;
 
   .movie-item {
     width: calc(math.div(100%, 3) - settings.$spacer-min * 2/3);
-    font-size: 1.6rem;
     contain: paint;
 
     a {
@@ -148,6 +141,14 @@ $space-block-side: settings.$spacer-min * 4;
   }
 
   .list-safix {
+    width: calc(math.div(100%, 3) - settings.$spacer-min * 2/3);
+    font-size: 1.6rem;
+
+    a {
+      height: inherit;
+      display: block;
+    }
+
     .link-more {
       align-items: center;
       height: 100%;

@@ -5,10 +5,11 @@ import Home2_2View from '../views/Home2_2View.vue';
 import Home2_3View from '../views/Home2_3View.vue';
 import PlayerView from '../views/PlayerView_swiper.vue';
 import PlayerItemView from '../views/PlayerItemView.vue';
-import testView from '@/views/test.vue';
 
 import Home2_3View_transition from '../views/Home2_3View_transition.vue';
 import PlayerViewTransition from '../views/PlayerView_swiper_transition.vue';
+
+import testView from '@/views/test.vue';
 
 const router = createRouter({
   mode: 'history',
@@ -73,9 +74,5 @@ const router = createRouter({
       }],
     },  ],
 });
-
-// router.beforeEach((to, from, next) => {
-//   document.startViewTransition(() => next());
-// });
 
 export default router;

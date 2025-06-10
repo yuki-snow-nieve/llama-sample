@@ -11,13 +11,7 @@ import itemsData from '@/assets/tempData/items.json';
 const transitionDuration = 3000;
 const targetPosition = ref({x: 0, y: 0});
 
-const pageToPlayer = (position) => {
-  targetPosition.value = position;
-};
-
 onBeforeRouteLeave((to, from, next) => {
-  console.log(to)
-  console.log(from)
 
   if (to.name === 'player_transition') {
     const clickedList = to.params.feature_id;
@@ -25,9 +19,9 @@ onBeforeRouteLeave((to, from, next) => {
       duration: transitionDuration,
     }
     const canvas = document.getElementById('listCanvas');
+    const vanvas_w = canvas.getBoundingClientRect().width;
     const items = document.getElementById(clickedList).getElementsByClassName('movie-item');
     targetPosition.value.y = window.getComputedStyle(canvas).getPropertyValue('--ratio_16_9_forw100per');
-    console.log(targetPosition.value.y)
 
     let tempElms = document.createElement('div');
     tempElms.style.position = 'relative';
@@ -35,15 +29,19 @@ onBeforeRouteLeave((to, from, next) => {
 
     Array.from( items ).forEach(el => {
       let originImg = el.querySelector('.item-image img');
+
       let img = originImg.cloneNode();
       originImg.style.opacity = 0;
 
       let x = originImg.getBoundingClientRect().x;
       let y = originImg.getBoundingClientRect().y;
+      let width = originImg.getBoundingClientRect().width;
 
       img.style.position = 'fixed';
       img.style.left = `${x}px`;
       img.style.top = `${y}px`;
+      img.style.width = `${width}px`;
+      img.style.transformOrigin = '0 0'
 
       if ( img.getAttribute('item-id') === to.params.item_id ) {
         img.style.zIndex = 100;
@@ -51,9 +49,13 @@ onBeforeRouteLeave((to, from, next) => {
 
       tempElms.insertAdjacentElement('beforeend', img)
 
+      const toX = `calc(${targetPosition.value.x - x}px)`;
+      const toY = `calc(${targetPosition.value.y} - ${y}px)`;
+      const toScale = vanvas_w / width;
+
       const animation = [
-        {transform: "translate(0, 0)"},
-        {transform: `translate(0, calc(${targetPosition.value.y} - ${y}px)`}
+        {transform: 'translate(0, 0) scale(1)'},
+        {transform: `translate(${toX}, ${toY}) scale(${toScale})`}
       ]
       img.animate(animation, animationTiming);
     })
@@ -84,7 +86,6 @@ onBeforeRouteLeave((to, from, next) => {
               :title="item.title"
               :items="item.items"
               :feature_id="pickupData.feature_id"
-              @linkClicked="pageToPlayer"
             />
           </section>
           <BoxFeature
@@ -93,8 +94,6 @@ onBeforeRouteLeave((to, from, next) => {
             :id="feature.feature_id"
             :title="feature.title"
             :items="feature.items"
-            @linkClicked="pageToPlayer"
-            :view-transition-name="`listBox_${feature.feature_id}`"
           />
         </div>
       </div>

@@ -6,20 +6,12 @@ defineProps({
   feature_id: String,
 });
 
-const emit = defineEmits(['linkClicked']);
-
-const linkClicked = (el) => {
-  const img = el.querySelector('img');
-  emit('linkClicked', {'x': img.getBoundingClientRect().x, 'y': img.getBoundingClientRect().y});
-};
-
 </script>
 
 <template>
   <div class="movie-item">
     <RouterLink
       :to="{name: 'player_transition', params: {'feature_id': feature_id,'item_id': item_id }}"
-      @click="linkClicked($el)"
     >
       <div class="pickup-header">tr / PICK UP</div>
       <dl class="item pickup-body">
@@ -28,7 +20,6 @@ const linkClicked = (el) => {
           <img
             :src="`https://img.youtube.com/vi/${item_id}/maxresdefault.jpg`"
             :alt="title"
-            :view-transition-name="item_id"
             :item-id="item_id"
           />
         </dd>
