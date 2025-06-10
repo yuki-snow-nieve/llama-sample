@@ -24,10 +24,7 @@ body {
   margin-top: 1em;
 }
 
-section {
-  margin-bottom: 32px;
-  padding: 8px;
-  padding-top: 24px;
+main > section {
   &:before {
     position: relative;
     top: -24px;
@@ -39,6 +36,12 @@ section {
     background-color: var(--color-theme);
     text-align: center;
   }
+}
+
+section {
+  margin-bottom: 32px;
+  padding: 8px;
+  padding-top: 24px;
 }
 
 .section {
