@@ -9,15 +9,14 @@ defineProps({
 const emit = defineEmits(['linkClicked']);
 
 const linkClicked = (el) => {
-  console.log(el.querySelector('img'))
   const img = el.querySelector('img');
-  emit('linkClicked', 'box-pickup', {'x': img.getBoundingClientRect().x, 'y': img.getBoundingClientRect().y});
+  emit('linkClicked', {'x': img.getBoundingClientRect().x, 'y': img.getBoundingClientRect().y});
 };
 
 </script>
 
 <template>
-  <div class="box-pickup">
+  <div class="movie-item">
     <RouterLink
       :to="{name: 'player_transition', params: {'feature_id': feature_id,'item_id': item_id }}"
       @click="linkClicked($el)"
@@ -30,7 +29,7 @@ const linkClicked = (el) => {
             :src="`https://img.youtube.com/vi/${item_id}/maxresdefault.jpg`"
             :alt="title"
             :view-transition-name="item_id"
-            :data-item-id="item_id"
+            :item-id="item_id"
           />
         </dd>
       </dl>
@@ -47,7 +46,7 @@ const linkClicked = (el) => {
 
 $space-block-side: settings.$spacer-min * 4;
 
-.box-pickup {
+.movie-item {
   position: relative;
   margin: settings.$spacer-min * 10 $space-block-side;
   background-color: rgba(white, 0.1);

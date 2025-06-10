@@ -35,16 +35,23 @@ const listItems = computed(() => {
   return list;
 })
 
+const emit = defineEmits(['linkClicked']);
+
+const linkClicked = (el) => {
+  const img = el.querySelector('img');
+  emit('linkClicked', {'x': img.getBoundingClientRect().x, 'y': img.getBoundingClientRect().y});
+};
+
 </script>
 
 <template>
-  <section class="box-feature">
+  <section :id="id" class="box-feature">
     <header class="feature-header">
-      <h2 class="feature-title">{{ title }}</h2>
+      <h2 class="feature-title">tr/{{ title }}</h2>
       <div class="movie-item">
         <RouterLink
           :to="`/player_transition/${id}/${thumbItem.item_id}`"
-          @click="$emit('itemClicked', $el.querySelector('.movie-list'))"
+          @click="linkClicked($el)"
         >
           <img
             :src="`https://img.youtube.com/vi/${thumbItem.item_id}/maxresdefault.jpg`"
