@@ -17,16 +17,12 @@ onBeforeRouteLeave((to, from, next) => {
 
 //transitionの設定
 const transition_toPlayer = (to, from, next) => {
-  const transitionDuration = 3000;
+  const transitionDuration = 1400;
   const items = document.getElementById(to.params.feature_id).getElementsByClassName('movie-item');
 
   const canvas = document.getElementById('listCanvas');
 
   const targetPosition = {x: 0, y: window.getComputedStyle(canvas).getPropertyValue('--ratio_16_9_forw100per')};
-  const animationTiming = {
-    duration: transitionDuration,
-    fill: 'forwards'
-  }
   const canvas_w = canvas.getBoundingClientRect().width;
 
   let active_index = 0;
@@ -63,7 +59,8 @@ const transition_toPlayer = (to, from, next) => {
   })
   canvas.insertAdjacentElement('afterbegin', tempElms);
 
-  Array.from( tempElms.getElementsByTagName('img') ).forEach((img, index) => {
+  const imgs = Array.from( tempElms.getElementsByTagName('img') );
+  imgs.forEach((img, index) => {
 
     const elIndex = index - active_index;
 
@@ -73,7 +70,7 @@ const transition_toPlayer = (to, from, next) => {
     const to_scale_step2 = elIndex === 0 ? 1 * to_scale : 0.46 * to_scale;
     const to_opacity = elIndex === 0 ? 1 : 0.4;
 
-    const animation1 = [
+    const animation_el = [
       {transform: 'translate(0, 0) scale(1)'},
       {
         transform: 
@@ -89,7 +86,7 @@ const transition_toPlayer = (to, from, next) => {
         opacity: to_opacity
       }
     ]
-    const transition = img.animate(animation1, animationTiming);
+    const transition = img.animate(animation_el, transitionDuration);
 
     transition.onfinish = (e) => {
       // console.log(e)
@@ -98,30 +95,29 @@ const transition_toPlayer = (to, from, next) => {
     Promise.all(
       tempElms.getAnimations({ subtree: true }).map((animation) => animation.finished),
     ).then((e) => {
-      console.log(e)
+      console.log(`imgs: ${imgs.length}, e.length: ${e.length}`)
+      if (e.length >= index) {
+        next();
+      }
     });
-    
-  // setTimeout(() => {
-  //   next();
-  // }, transitionDuration);    
 
   })
 
+  const animation_back = [
+    {
+      transform: 'rotateY(0)',
+      opacity: 1
+    },
+    {
+      transform: 'rotateY(90deg)',
+      opacity: 0
+    }
+  ]
 
-
-      // const toY_step2 = `calc(${targetPosition.y} - ${y - img.getAttribute('index') * canvas_w * 9 / 16}px)`;
-
-
-      // const animation1 = [
-      //   {transform: `translate(${toX}, ${toY_step2})
-      //               rotate(${toRotate})
-      //               scale(${is_active ? 1 : 1})`,
-      //               opacity: is_active ? 1 : 0.4
-      //   }
-      // ]
-
-    // })
-
+  canvas.getElementsByClassName('list-wrapper')[0].animate(animation_back, {
+    duration: transitionDuration * 0.4,
+    fill: 'forwards'
+  })
 
 
 }
