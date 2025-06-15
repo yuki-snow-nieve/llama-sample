@@ -7,70 +7,124 @@ import BoxPickup from '@/components/home/BoxPickup2_3_transition.vue';
 import pickupData from '@/assets/tempData/pickupItems.json';
 import itemsData from '@/assets/tempData/items.json';
 
-//transitionの設定
-const transitionDuration = 3000;
-const targetPosition = ref({x: 0, y: 0});
-
 onBeforeRouteLeave((to, from, next) => {
-
   if (to.name === 'player_transition') {
-    const clickedList = to.params.feature_id;
-    const animationTiming = {
-      duration: transitionDuration,
-    }
-    const canvas = document.getElementById('listCanvas');
-    const vanvas_w = canvas.getBoundingClientRect().width;
-    const items = document.getElementById(clickedList).getElementsByClassName('movie-item');
-    targetPosition.value.y = window.getComputedStyle(canvas).getPropertyValue('--ratio_16_9_forw100per');
-
-    let tempElms = document.createElement('div');
-    tempElms.style.position = 'relative';
-    tempElms.style.zIndex = 100;
-
-    Array.from( items ).forEach(el => {
-      let originImg = el.querySelector('.item-image img');
-
-      let img = originImg.cloneNode();
-      originImg.style.opacity = 0;
-
-      let x = originImg.getBoundingClientRect().x;
-      let y = originImg.getBoundingClientRect().y;
-      let width = originImg.getBoundingClientRect().width;
-
-      img.style.position = 'fixed';
-      img.style.left = `${x}px`;
-      img.style.top = `${y}px`;
-      img.style.width = `${width}px`;
-      img.style.transformOrigin = '0 0'
-
-      if ( img.getAttribute('item-id') === to.params.item_id ) {
-        img.style.zIndex = 100;
-      }
-
-      tempElms.insertAdjacentElement('beforeend', img)
-
-      const toX = `calc(${targetPosition.value.x - x}px)`;
-      const toY = `calc(${targetPosition.value.y} - ${y}px)`;
-      const toScale = vanvas_w / width;
-
-      const animation = [
-        {transform: 'translate(0, 0) scale(1)'},
-        {transform: `translate(${toX}, ${toY}) scale(${toScale})`}
-      ]
-      img.animate(animation, animationTiming);
-    })
-
-    canvas.insertAdjacentElement('afterbegin', tempElms);
-
-    setTimeout(() => {
-      next()
-    }, transitionDuration);
-
+    transition_toPlayer(to, from, next)
   } else {
-    next()
+    next();
   }
+});
 
-})
+//transitionの設定
+const transition_toPlayer = (to, from, next) => {
+  const transitionDuration = 3000;
+  const items = document.getElementById(to.params.feature_id).getElementsByClassName('movie-item');
+
+  const canvas = document.getElementById('listCanvas');
+
+  const targetPosition = {x: 0, y: window.getComputedStyle(canvas).getPropertyValue('--ratio_16_9_forw100per')};
+  const animationTiming = {
+    duration: transitionDuration,
+    fill: 'forwards'
+  }
+  const canvas_w = canvas.getBoundingClientRect().width;
+
+  let active_index = 0;
+
+  const tempElms = document.createElement('div');
+  tempElms.style.position = 'relative';
+  tempElms.style.zIndex = 100;
+
+  Array.from( items ).forEach((el, index) => {
+    const originImg = el.querySelector('.item-image img');
+    const origin_x = originImg.getBoundingClientRect().x;
+    const origin_y = originImg.getBoundingClientRect().y;
+    const origin_width = originImg.getBoundingClientRect().width;
+
+    const img = originImg.cloneNode();
+    img.style.position = 'fixed';
+    img.style.left = `${origin_x}px`;
+    img.style.top = `${origin_y}px`;
+    img.style.width = `${origin_width}px`;
+    img.style.transformOrigin = '0% 50%'
+
+    originImg.style.opacity = 0;
+
+    img.setAttribute('to_x', `${targetPosition.x - origin_x}px`);
+    img.setAttribute('to_y', `calc(${targetPosition.y} - ${origin_y}px)`);
+    img.setAttribute('to_scale', canvas_w / origin_width);
+
+    tempElms.insertAdjacentElement('beforeend', img);
+
+    if (img.getAttribute('item-id') === to.params.item_id) {
+      active_index = index;
+      img.style.zIndex = 100;
+    }
+  })
+  canvas.insertAdjacentElement('afterbegin', tempElms);
+
+  Array.from( tempElms.getElementsByTagName('img') ).forEach((img, index) => {
+
+    const elIndex = index - active_index;
+
+    const to_rotate = `${45 * elIndex}deg`;
+    const to_scale = img.getAttribute('to_scale');
+    const to_y_step2 = `calc(${img.getAttribute('to_y')} + ${elIndex * canvas_w * 9 / 16}px)`;
+    const to_scale_step2 = elIndex === 0 ? 1 * to_scale : 0.46 * to_scale;
+    const to_opacity = elIndex === 0 ? 1 : 0.4;
+
+    const animation1 = [
+      {transform: 'translate(0, 0) scale(1)'},
+      {
+        transform: 
+          `translate(${img.getAttribute('to_x')}, ${img.getAttribute('to_y')})
+          scale(${img.getAttribute('to_scale')})`,
+        opacity: 1
+      },
+      {
+        transform:
+          `translate(${img.getAttribute('to_x')}, ${to_y_step2})
+          scale(${to_scale_step2})
+          rotate(${to_rotate})`,
+        opacity: to_opacity
+      }
+    ]
+    const transition = img.animate(animation1, animationTiming);
+
+    transition.onfinish = (e) => {
+      // console.log(e)
+    }
+
+    Promise.all(
+      tempElms.getAnimations({ subtree: true }).map((animation) => animation.finished),
+    ).then((e) => {
+      console.log(e)
+    });
+    
+  // setTimeout(() => {
+  //   next();
+  // }, transitionDuration);    
+
+  })
+
+
+
+      // const toY_step2 = `calc(${targetPosition.y} - ${y - img.getAttribute('index') * canvas_w * 9 / 16}px)`;
+
+
+      // const animation1 = [
+      //   {transform: `translate(${toX}, ${toY_step2})
+      //               rotate(${toRotate})
+      //               scale(${is_active ? 1 : 1})`,
+      //               opacity: is_active ? 1 : 0.4
+      //   }
+      // ]
+
+    // })
+
+
+
+}
 </script>
 
 <template>

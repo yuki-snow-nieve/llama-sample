@@ -13,7 +13,7 @@ import testView from '@/views/test.vue';
 
 const router = createRouter({
   mode: 'history',
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/'),
   routes: [
     {
       path: '/test',

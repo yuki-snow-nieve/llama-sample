@@ -1,8 +1,8 @@
 <script setup>
-import { useRouter, useRoute } from 'vue-router';
+import { useRouter, useRoute, onBeforeRouteUpdate } from 'vue-router';
 const router = useRouter();
 const route = useRoute();
-import { ref, computed, onMounted, useTemplateRef } from 'vue';
+import { ref, computed, onBeforeMount, onMounted, useTemplateRef } from 'vue';
 
 import ItemInfo from '@/components/player/ItemInfo.vue';
 
@@ -40,6 +40,22 @@ const active_index = computed({
 
 //UIの設定
 
+
+// onBeforeRouteUpdate(async (to, from) => {
+//   console.log(to)
+//   console.log(from)
+//   // only fetch the user if the id changed as maybe only the query or the hash changed
+//   if (to.params.id !== from.params.id) {
+//     userData.value = await fetchUser(to.params.id)
+//   }
+// })
+
+onBeforeMount(() => {
+  console.log('before');
+  console.log(document.querySelectorAll('.transition'))
+})
+
+
 ////Swiper設定
 const boxSwiper = useTemplateRef('sectionPlayer');
 const swiperHeight = ref(0);
@@ -48,13 +64,17 @@ onMounted(() => {
   swiperHeight.value = itemH * 3;
 })
 
+const onSwiperInit = (swiper) => {
+  console.log(swiper)
+}
+
 const onSlideChange = (swiper) => {
   active_index.value = swiper.activeIndex;
   router.push({ name: 'player', params: { feature_id: route.params.feature_id, item_id: active_item.value.item_id }})
 };
 
 
-const onSlideChangeTransitionStart = (e) => {
+const onSlideChangeTransitionStart = () => {
   isShowInfo.value = false;
 }
 
@@ -95,10 +115,10 @@ const onSlideChangeTransitionEnd = () => {
             opacity: 0.4
           }
         }"
+        @init="onSwiperInit"
         @slideChange="onSlideChange"
         @slideChangeTransitionStart="onSlideChangeTransitionStart"
         @slideChangeTransitionEnd="onSlideChangeTransitionEnd"
-        :view-transition-name="`listBox_${route.params.feature_id}`"
       >
         <swiper-slide
           v-for="(item, i) in list.items"
