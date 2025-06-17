@@ -38,18 +38,20 @@ const listItems = computed(() => {
 </script>
 
 <template>
-  <section class="box-feature">
+  <section :id="id" class="box-feature">
     <header class="feature-header">
       <h2 class="feature-title">{{ title }}</h2>
       <div class="movie-item">
         <RouterLink
           :to="`/player/${id}/${thumbItem.item_id}`"
-          @click="$emit('itemClicked', $el.querySelector('.movie-list'))"
         >
-          <img
-            :src="`https://img.youtube.com/vi/${thumbItem.item_id}/maxresdefault.jpg`"
-            :alt="thumbItem.title"
-          />
+          <div class="item-image">
+            <img
+              :src="`https://img.youtube.com/vi/${thumbItem.item_id}/maxresdefault.jpg`"
+              :alt="thumbItem.title"
+              :item-id="thumbItem.item_id"
+            />            
+          </div>
         </RouterLink>
       </div>
     </header>
@@ -57,19 +59,20 @@ const listItems = computed(() => {
       <li
         v-for="item in listItems"
         class="movie-item"
-        :style="`view-transition-name: ${item.item_id}`"
       >
         <RouterLink
           :to="`/player/${id}/${item.item_id}`"
-          @click="$emit('itemClicked', $el.querySelector('.movie-list'))"
         >
-          <img
-            :src="`https://img.youtube.com/vi/${item.item_id}/maxresdefault.jpg`"
-            :alt="item.title"
-          />
+          <div class="item-image">
+            <img
+              :src="`https://img.youtube.com/vi/${item.item_id}/maxresdefault.jpg`"
+              :alt="item.title"
+              :item-id="item.item_id"
+            />            
+          </div>
         </RouterLink>
       </li>
-      <li class="list-safix movie-item">
+      <li class="list-safix">
         <RouterLink
           :to="`/player/${id}/${thumbItem.item_id}`"
           class="link-more"
@@ -123,7 +126,6 @@ $space-block-side: settings.$spacer-min * 4;
 
   .movie-item {
     width: calc(math.div(100%, 3) - settings.$spacer-min * 2/3);
-    font-size: 1.6rem;
     contain: paint;
 
     a {
@@ -132,11 +134,21 @@ $space-block-side: settings.$spacer-min * 4;
     }
 
     img {
+      position: relative;
       height: inherit;
+      contain: paint;
     }
   }
 
   .list-safix {
+    width: calc(math.div(100%, 3) - settings.$spacer-min * 2/3);
+    font-size: 1.6rem;
+
+    a {
+      height: inherit;
+      display: block;
+    }
+
     .link-more {
       align-items: center;
       height: 100%;
