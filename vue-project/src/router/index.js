@@ -1,14 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
-import Home2_1View from '../views/Home2_1View.vue';
-import Home2_2View from '../views/Home2_2View.vue';
-import Home2_3View from '../views/Home2_3View.vue';
-import Home2_4View from '../views/Home2_4View.vue';
-import Home2_3View_transition from '../views/Home2_3View_transition.vue';
-import Home2_4View_transition from '../views/Home2_4View_transition.vue';
-import PlayerView from '../views/PlayerView_swiper.vue';
-import PlayerItemView from '../views/PlayerItemView.vue';
-
+import HomeView from '@/views/HomeView.vue';
+import Home_swiper_list_View from '@/views/Home_1_1_View.vue';
+import Home_swiper_box_View from '@/views/Home_1_2_View.vue';
+import Home_vertical_list_View from '@/views/Home_2_1_View.vue';
+import Home_vertical_box_View from '@/views/Home_2_2_View.vue';
+import Home_vertical_list_transition_View from '@/views/Home_2_1_transition_View.vue';
+import Home_vertical_box_transition_View from '@/views/Home_2_2_transition_View.vue';
+import PlayerView from '@/views/PlayerView_swiper.vue';
+import PlayerItemView from '@/views/PlayerItemView.vue';
 
 import testView from '@/views/test.vue';
 
@@ -27,34 +26,34 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/home2_1',
-      name: 'home2_1',
-      component: Home2_1View,
+      path: '/home_1_1',
+      name: 'home_1_1',
+      component: Home_swiper_list_View,
     },
     {
-      path: '/home2_2',
-      name: 'home2_2',
-      component: Home2_2View,
+      path: '/home_1_2',
+      name: 'home_1_2',
+      component: Home_swiper_box_View,
     },
     {
-      path: '/home2_3',
-      name: 'home2_3',
-      component: Home2_3View,
+      path: '/home_2_1',
+      name: 'home_2_1',
+      component: Home_vertical_list_View,
     },
     {
-      path: '/home2_4',
-      name: 'home2_4',
-      component: Home2_4View,
+      path: '/home_2_2',
+      name: 'home_2_2',
+      component: Home_vertical_box_View,
     },
     {
-      path: '/home2_3_transition',
-      name: 'home2_3_transition',
-      component: Home2_3View_transition,
+      path: '/home_2_1_transition',
+      name: 'home_2_1_transition',
+      component: Home_vertical_list_transition_View,
     },
     {
-      path: '/home2_4_transition',
-      name: 'home2_4_transition',
-      component: Home2_4View_transition,
+      path: '/home_2_2_transition',
+      name: 'home_2_2_transition',
+      component: Home_vertical_box_transition_View,
     },
     {
       path: '/about',

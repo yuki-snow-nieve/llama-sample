@@ -16,13 +16,6 @@ defineProps({
 
 const modules = [ Pagination, Autoplay, Parallax ]
 
-const onSwiper = (swiper) => {
-  console.log(swiper);
-};
-const onSlideChange = () => {
-  console.log('slide change');
-};
-
 </script>
 
 <template>
@@ -37,8 +30,6 @@ const onSlideChange = () => {
       }"
       :pagination="{ clickable: true }"
       parallax
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
       class="list-movies"
     >
       <swiper-slide

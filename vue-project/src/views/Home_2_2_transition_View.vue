@@ -16,7 +16,7 @@ onBeforeRouteLeave((to, from, next) => {
 
 //transitionの設定
 const transition_toPlayer = (to, from, next) => {
-  const transitionDuration = 1400;
+  const transitionDuration = 1200;
 
   const active_index = Array.from(document.querySelectorAll(`#${to.params.feature_id} .movie-item img`))
                             .findIndex((item) => item.getAttribute('item-id') === to.params.item_id);
@@ -67,7 +67,6 @@ const transition_toPlayer = (to, from, next) => {
   }
 
   Array.from(items).forEach((el, index) => {
-    console.log(el)
     const originImg = el.querySelector('.item-image img');
     const origin_clientRect = originImg.getBoundingClientRect();
 
