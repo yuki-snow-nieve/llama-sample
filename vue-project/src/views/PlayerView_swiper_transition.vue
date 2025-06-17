@@ -1,8 +1,8 @@
 <script setup>
-import { useRouter, useRoute, onBeforeRouteUpdate } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 const router = useRouter();
 const route = useRoute();
-import { ref, computed, onBeforeMount, onMounted, useTemplateRef } from 'vue';
+import { ref, computed, onMounted, useTemplateRef } from 'vue';
 
 import ItemInfo from '@/components/player/ItemInfo.vue';
 
@@ -10,7 +10,7 @@ import pickupData from '@/assets/tempData/pickupItems.json';
 import itemsData from '@/assets/tempData/items.json';
 
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { EffectCreative, History } from 'swiper/modules';
+import { EffectCreative } from 'swiper/modules';
 const swiperModules = [EffectCreative];
 
 const isShowInfo = ref(true)
@@ -39,23 +39,6 @@ const active_index = computed({
 })
 
 //UIの設定
-
-
-// onBeforeRouteUpdate(async (to, from) => {
-//   console.log(to)
-//   console.log(from)
-//   // only fetch the user if the id changed as maybe only the query or the hash changed
-//   if (to.params.id !== from.params.id) {
-//     userData.value = await fetchUser(to.params.id)
-//   }
-// })
-
-onBeforeMount(() => {
-  console.log('before');
-  console.log(document.querySelectorAll('.transition'))
-})
-
-
 ////Swiper設定
 const boxSwiper = useTemplateRef('sectionPlayer');
 const swiperHeight = ref(0);
@@ -63,10 +46,6 @@ onMounted(() => {
   const itemH = boxSwiper.value.offsetWidth * 9 / 16;
   swiperHeight.value = itemH * 3;
 })
-
-const onSwiperInit = (swiper) => {
-  console.log(swiper)
-}
 
 const onSlideChange = (swiper) => {
   active_index.value = swiper.activeIndex;
@@ -87,7 +66,7 @@ const onSlideChangeTransitionEnd = () => {
 <template>
   <main class="main page-player">
     <section ref="sectionPlayer" class="section-movies">
-      <h2 class="list-title" id="swiperBox">transition / {{ list.title }}</h2>
+      <h2 class="list-title" id="swiperBox">{{ list.title }}</h2>
       <swiper
         class="movie-list"
         :direction="'vertical'"
@@ -133,7 +112,7 @@ const onSlideChangeTransitionEnd = () => {
 
           <!-- iframeいったん非表示  v-if="i === active_index"-->
           <iframe
-            v-if="i === 10000"
+            v-if="i === active_index"
             width="100%"
             height="100%"
             :src="`${item.movie}&autoplay=1&mute=1&controls=0`"

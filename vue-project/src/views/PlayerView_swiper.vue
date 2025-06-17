@@ -10,7 +10,7 @@ import pickupData from '@/assets/tempData/pickupItems.json';
 import itemsData from '@/assets/tempData/items.json';
 
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { EffectCreative, History } from 'swiper/modules';
+import { EffectCreative } from 'swiper/modules';
 const swiperModules = [EffectCreative];
 
 const isShowInfo = ref(true)
@@ -39,15 +39,6 @@ const active_index = computed({
 })
 
 //UIの設定
-const setVisibleSlideClass = (slides, activeIndex) => {
-  // if (slides[activeIndex - 2]) {
-  //   slides[activeIndex - 2].classList.add('swiper-slide-prev-prev')
-  // }
-  // if (slides[activeIndex + 2]) {
-  //   slides[activeIndex + 2].classList.add('swiper-slide-next-next')
-  // }
-}
-
 ////Swiper設定
 const boxSwiper = useTemplateRef('sectionPlayer');
 const swiperHeight = ref(0);
@@ -61,31 +52,13 @@ const onSlideChange = (swiper) => {
   router.push({ name: 'player', params: { feature_id: route.params.feature_id, item_id: active_item.value.item_id }})
 };
 
-// const onSlideNextTransitionStart = (e) => {
-//   console.log('slideNextTransitionStart');
-// }
-
-// const onSlidePrevTransitionStart = (e) => {
-//   console.log('slidePrevTransitionStart');
-// }
-
-const onSlideChangeTransitionStart = (e) => {
+const onSlideChangeTransitionStart = () => {
   isShowInfo.value = false;
-  // e.slides.forEach(slide => {
-  //   if (slide.classList.contains('swiper-slide-prev-prev')) {
-  //     slide.classList.remove('swiper-slide-prev-prev')
-  //   }
-  //   if (slide.classList.contains('swiper-slide-next-next')) {
-  //     slide.classList.remove('swiper-slide-next-next')
-  //   }
-  // })
-  // setVisibleSlideClass(e.slides, e.activeIndex)
 }
 
 const onSlideChangeTransitionEnd = () => {
   isShowInfo.value = true
 }
-
 </script>
 
 <template>
@@ -137,7 +110,7 @@ const onSlideChangeTransitionEnd = () => {
             v-if="i === active_index"
             width="100%"
             height="100%"
-            :src="`${item.movie}&autoplay=1&mute=1`"
+            :src="`${item.movie}&autoplay=1&mute=1&controls=0`"
             :title="item.title"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

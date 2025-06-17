@@ -63,16 +63,7 @@ const router = createRouter({
         component: PlayerItemView
       }],
     },
-    {
-      path: '/player_transition/:feature_id/:item_id',
-      name: 'player_transition',
-      component: PlayerViewTransition,
-      children: [{
-        path: 'detail',
-        name: 'itemDetail',
-        component: PlayerItemView
-      }],
-    },  ],
+  ]
 });
 
 export default router;

@@ -1,6 +1,5 @@
 <script setup>
 import { onBeforeRouteLeave } from 'vue-router'
-import { ref } from 'vue';
 
 import BoxFeature from '@/components/home/BoxFeature2_3_transition.vue';
 import BoxPickup from '@/components/home/BoxPickup2_3_transition.vue';
@@ -8,7 +7,7 @@ import pickupData from '@/assets/tempData/pickupItems.json';
 import itemsData from '@/assets/tempData/items.json';
 
 onBeforeRouteLeave((to, from, next) => {
-  if (to.name === 'player_transition') {
+  if (to.name === 'player') {
     transition_toPlayer(to, from, next)
   } else {
     next();

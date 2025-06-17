@@ -43,7 +43,7 @@ const listItems = computed(() => {
       <h2 class="feature-title">tr/{{ title }}</h2>
       <div class="movie-item">
         <RouterLink
-          :to="`/player_transition/${id}/${thumbItem.item_id}`"
+          :to="`/player/${id}/${thumbItem.item_id}`"
         >
           <div class="item-image">
             <img
@@ -61,7 +61,7 @@ const listItems = computed(() => {
         class="movie-item"
       >
         <RouterLink
-          :to="`/player_transition/${id}/${item.item_id}`"
+          :to="`/player/${id}/${item.item_id}`"
         >
           <div class="item-image">
             <img
@@ -74,7 +74,7 @@ const listItems = computed(() => {
       </li>
       <li class="list-safix">
         <RouterLink
-          :to="`/player_transition/${id}/${thumbItem.item_id}`"
+          :to="`/player/${id}/${thumbItem.item_id}`"
           class="link-more"
         >
           もっと見る

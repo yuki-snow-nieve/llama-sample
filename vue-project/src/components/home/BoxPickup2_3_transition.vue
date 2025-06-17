@@ -11,7 +11,7 @@ defineProps({
 <template>
   <div class="movie-item">
     <RouterLink
-      :to="{name: 'player_transition', params: {'feature_id': feature_id,'item_id': item_id }}"
+      :to="{name: 'player', params: {'feature_id': feature_id,'item_id': item_id }}"
     >
       <div class="pickup-header">tr / PICK UP</div>
       <dl class="item pickup-body">
