@@ -1,6 +1,6 @@
 <script setup>
 import BoxFeature from '../components/home/BoxFeature.vue';
-import BoxPickup from '../components/home/BoxPickup.vue';
+import BoxPickup from '@/components/home/BoxPickup.vue';
 import pickupData from '@/assets/tempData/pickupItems.json';
 import itemsData from '@/assets/tempData/items.json';
 
