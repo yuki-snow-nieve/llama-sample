@@ -1,9 +1,8 @@
 <script setup>
-import BoxFeature from '../components/home/BoxFeature2_3.vue';
-import BoxPickup from '../components/home/BoxPickup_box.vue';
+import BoxFeature from '@/components/home/BoxFeature_scroll.vue';
+import BoxPickup from '@/components/home/BoxPickup_box.vue';
 import pickupData from '@/assets/tempData/pickupItems.json';
 import itemsData from '@/assets/tempData/items.json';
-
 </script>
 
 <template>

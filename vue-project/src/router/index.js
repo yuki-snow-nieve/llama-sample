@@ -3,10 +3,12 @@ import HomeView from '../views/HomeView.vue';
 import Home2_1View from '../views/Home2_1View.vue';
 import Home2_2View from '../views/Home2_2View.vue';
 import Home2_3View from '../views/Home2_3View.vue';
+import Home2_4View from '../views/Home2_4View.vue';
+import Home2_3View_transition from '../views/Home2_3View_transition.vue';
+import Home2_4View_transition from '../views/Home2_4View_transition.vue';
 import PlayerView from '../views/PlayerView_swiper.vue';
 import PlayerItemView from '../views/PlayerItemView.vue';
 
-import Home2_3View_transition from '../views/Home2_3View_transition.vue';
 
 import testView from '@/views/test.vue';
 
@@ -40,9 +42,19 @@ const router = createRouter({
       component: Home2_3View,
     },
     {
+      path: '/home2_4',
+      name: 'home2_4',
+      component: Home2_4View,
+    },
+    {
       path: '/home2_3_transition',
       name: 'home2_3_transition',
       component: Home2_3View_transition,
+    },
+    {
+      path: '/home2_4_transition',
+      name: 'home2_4_transition',
+      component: Home2_4View_transition,
     },
     {
       path: '/about',

@@ -23,18 +23,20 @@ const listItems = computed(() => {
 </script>
 
 <template>
-  <section class="box-feature">
+  <section :id="id" class="box-feature">
     <header class="feature-header">
       <h2 class="feature-title">{{ title }}</h2>
       <div class="movie-item">
         <RouterLink
           :to="`/player/${id}/${thumbItem.item_id}`"
-          @click="$emit('itemClicked', $el.querySelector('.movie-list'))"
         >
-          <img
-            :src="`https://img.youtube.com/vi/${thumbItem.item_id}/maxresdefault.jpg`"
-            :alt="thumbItem.title"
-          />
+          <div class="item-image">
+            <img
+              :src="`https://img.youtube.com/vi/${thumbItem.item_id}/maxresdefault.jpg`"
+              :alt="thumbItem.title"
+              :item-id="thumbItem.item_id"
+            />
+          </div>
         </RouterLink>
       </div>
     </header>
@@ -48,10 +50,13 @@ const listItems = computed(() => {
           :to="`/player/${id}/${item.item_id}`"
           @click="$emit('itemClicked', $el.querySelector('.movie-list'))"
         >
-          <img
-            :src="`https://img.youtube.com/vi/${item.item_id}/maxresdefault.jpg`"
-            :alt="item.title"
-          />
+          <div class="item-image">
+            <img
+              :src="`https://img.youtube.com/vi/${item.item_id}/maxresdefault.jpg`"
+              :alt="item.title"
+              :item-id="item.item_id"
+            />
+          </div>
         </RouterLink>
       </li>
     </ul>
