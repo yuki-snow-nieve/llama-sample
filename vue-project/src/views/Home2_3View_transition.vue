@@ -75,7 +75,7 @@ const transition_toPlayer = (to, from, next) => {
     img.style.left = `${origin_clientRect.x}px`;
     img.style.top = `${origin_clientRect.y}px`;
     img.style.width = `${origin_clientRect.width}px`;
-    img.style.transformOrigin = '0% 50%'
+    img.style.transformOrigin = '0% 0%'
     if (index === active_index) {
       img.style.zIndex = 100;
     }
