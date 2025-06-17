@@ -7,7 +7,6 @@ import PlayerView from '../views/PlayerView_swiper.vue';
 import PlayerItemView from '../views/PlayerItemView.vue';
 
 import Home2_3View_transition from '../views/Home2_3View_transition.vue';
-import PlayerViewTransition from '../views/PlayerView_swiper_transition.vue';
 
 import testView from '@/views/test.vue';
 

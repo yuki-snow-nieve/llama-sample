@@ -8,8 +8,10 @@ defineProps({
 </script>
 
 <template>
-  <div class="box-pickup">
-    <RouterLink :to="`/player/${feature_id}/${item_id}`">
+  <div class="movie-item">
+    <RouterLink
+      :to="{name: 'player', params: {'feature_id': feature_id,'item_id': item_id }}"
+    >
       <div class="pickup-header">PICK UP</div>
       <dl class="item pickup-body">
         <dt class="item-title">{{ title }}</dt>
@@ -17,7 +19,7 @@ defineProps({
           <img
             :src="`https://img.youtube.com/vi/${item_id}/maxresdefault.jpg`"
             :alt="title"
-            :view-transition-name="item_id"
+            :item-id="item_id"
           />
         </dd>
       </dl>
@@ -34,7 +36,7 @@ defineProps({
 
 $space-block-side: settings.$spacer-min * 4;
 
-.box-pickup {
+.movie-item {
   position: relative;
   margin: settings.$spacer-min * 10 $space-block-side;
   background-color: rgba(white, 0.1);

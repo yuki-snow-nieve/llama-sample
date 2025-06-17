@@ -2,7 +2,7 @@
 import { onBeforeRouteLeave } from 'vue-router'
 
 import BoxFeature from '@/components/home/BoxFeature2_3_transition.vue';
-import BoxPickup from '@/components/home/BoxPickup2_3_transition.vue';
+import BoxPickup from '@/components/home/BoxPickup_box.vue';
 import pickupData from '@/assets/tempData/pickupItems.json';
 import itemsData from '@/assets/tempData/items.json';
 
