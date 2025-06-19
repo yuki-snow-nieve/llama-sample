@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "destyle.css": "^4.0.1",
+    "gsap": "^3.13.0",
     "sass": "^1.85.0",
     "sass-resources-loader": "^2.2.5",
     "swiper": "^11.2.6",
