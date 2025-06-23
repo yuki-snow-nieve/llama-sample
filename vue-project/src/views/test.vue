@@ -28,7 +28,7 @@
 .wrapper {
   padding-top: 50px;
 
-  --ratio_16_9_forw100per: calc(50cqh + #{math.div(100cqw * 9/16, 4)});
+  --ratio_16_9_forw100per: calc(50cqh + #{math.div(math.div(100cqw * 9, 16), 4)});
 }
 
 .test0 {

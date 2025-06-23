@@ -172,7 +172,7 @@ const onSlideChangeTransitionEnd = () => {
 
 .swiper:deep {
   .swiper-wrapper {
-    $activeContentHeight: 100cqw * 9/16;
+    $activeContentHeight: math.div(100cqw * 9, 16);
     --height: calc(#{$activeContentHeight} + #{settings.$sizeH_globalHeader});
 
     position: relative;
@@ -262,7 +262,7 @@ const onSlideChangeTransitionEnd = () => {
 }
 
 .movie-info {
-  $activeContentHeight: 100cqw * 9/16;
+  $activeContentHeight: math.div(100cqw * 9, 16);
   --height: calc(50cqh + #{math.div($activeContentHeight, 4)});
   position: absolute;
   top: var(--height);

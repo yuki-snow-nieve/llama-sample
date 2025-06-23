@@ -57,7 +57,7 @@ body {
   height: 100dvh;
 
   .section-movies {
-    --ratio_16_9_forw100per: calc(#{100cqw * 9/16} + #{settings.$sizeH_globalHeader});
+    --ratio_16_9_forw100per: calc(#{math.div(100cqw * 9, 16)} + #{settings.$sizeH_globalHeader});
   }
 }
 

@@ -19,7 +19,6 @@ defineProps({
         class="movie-item"
         :style="`view-transition-name: ${item.item_id}`"
       >
-        <template> </template>
         <RouterLink
           :to="`/player/${id}/${item.item_id}`"
           @click="$emit('itemClicked', $el.querySelector('.movie-list'))"
