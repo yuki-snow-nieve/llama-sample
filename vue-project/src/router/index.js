@@ -8,6 +8,8 @@ import Home_vertical_list_transition_View from '@/views/Home_2_1_transition_View
 import Home_vertical_box_transition_View from '@/views/Home_2_2_transition_View.vue';
 import Home_2_2_drumroll_View from '@/views/Home_2_2_drumroll_View.vue';
 import Home_2_2_drumrollCSS_View from '@/views/Home_2_2_drumroll_cssAnimation.vue';
+import Home_2_2_drumroll_swiper_View from '@/views/Home_2_2_drumroll_swiper_View.vue';
+import Home_2_2_drumroll_gsap_View from '@/views/Home_2_2_drumroll_gsap_View.vue'
 import PlayerView from '@/views/PlayerView_swiper.vue';
 import PlayerItemView from '@/views/PlayerItemView.vue';
 
@@ -66,6 +68,16 @@ const router = createRouter({
       path: '/home_2_2_drumroll_css',
       name: 'home_2_2_drumroll_css',
       component: Home_2_2_drumrollCSS_View,
+    },
+    {
+      path: '/Home_2_2_drumroll_swiper',
+      name: 'Home_2_2_drumroll_swiper',
+      component: Home_2_2_drumroll_swiper_View
+    },
+    {
+      path: '/Home_2_2_drumroll_gsap',
+      name: 'Home_2_2_drumroll_gsap',
+      component: Home_2_2_drumroll_gsap_View
     },
     {
       path: '/about',

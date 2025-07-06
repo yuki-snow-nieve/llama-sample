@@ -23,5 +23,6 @@ import GlobalHeader from './components/global/Header.vue';
 #app > .main {
   width: 100%;
   max-width: var(--width-max-main-conteiner);
+  overflow-x: clip;
 }
 </style>

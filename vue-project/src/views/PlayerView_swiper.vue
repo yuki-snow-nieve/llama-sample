@@ -40,12 +40,34 @@ const active_index = computed({
 
 //UIの設定
 ////Swiper設定
+const isSwiperShow = ref(false);
 const boxSwiper = useTemplateRef('sectionPlayer');
 const swiperHeight = ref(0);
 onMounted(() => {
+  console.log('mounted')
+  document.querySelectorAll('.movie-item').forEach(el => {
+    console.log(el.getBoundingClientRect());
+  })
   const itemH = boxSwiper.value.offsetWidth * 9 / 16;
   swiperHeight.value = itemH * 3;
+  document.querySelectorAll('.movie-item').forEach(el => {
+    console.log(el.getBoundingClientRect());
+  })
 })
+
+const onSwiperBeforeInit = (e) => {
+  console.log('before')
+  console.log(e)
+}
+
+const onSwiperAfterInit = (e) => {
+  console.log('after')
+  console.log(e.slides)
+  // isSwiperShow.value = true;
+  e.slides.forEach(el => {
+    console.log(el.getBoundingClientRect());
+  })
+}
 
 const onSlideChange = (swiper) => {
   active_index.value = swiper.activeIndex;
@@ -66,6 +88,7 @@ const onSlideChangeTransitionEnd = () => {
     <section ref="sectionPlayer" class="section-movies">
       <h2 class="list-title" id="swiperBox">{{ list.title }}</h2>
       <swiper
+        v-show="isSwiperShow"
         class="movie-list"
         :direction="'vertical'"
         :height="swiperHeight"
@@ -92,6 +115,8 @@ const onSlideChangeTransitionEnd = () => {
             opacity: 0.4
           }
         }"
+        @beforeInit="onSwiperBeforeInit"
+        @afterInit="onSwiperAfterInit"
         @slideChange="onSlideChange"
         @slideChangeTransitionStart="onSlideChangeTransitionStart"
         @slideChangeTransitionEnd="onSlideChangeTransitionEnd"

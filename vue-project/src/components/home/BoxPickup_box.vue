@@ -40,6 +40,7 @@ $space-block-side: settings.$spacer-min * 4;
   position: relative;
   margin: settings.$spacer-min * 10 $space-block-side;
   background-color: rgba(white, 0.1);
+  box-shadow: 0 20px 30px -10px rgba(rgb(39, 39, 39), 0.2);
 }
 
 .pickup-header {
